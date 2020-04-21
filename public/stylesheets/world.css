@@ -1,0 +1,41 @@
+.table td{
+	padding: 4px;
+	border: 2px solid black;
+	text-align: center;
+}
+
+
+.table thead th{
+	border: 2px solid black;
+}
+
+/* tr:nth-child(even) {background-color: #eef3f7;}
+		tr:nth-child(odd) {background-color:	white;}
+		tr:hover {background-color: #cdd4d4;}		
+ */
+td{
+	font-size: 15px;
+}
+
+.chart-container {
+  position: relative;
+  margin: auto;
+}
+
+
+.row{
+	margin-left: 100px;
+}
+
+.col-lg-2.square{
+	margin: 2.5%;
+}
+body{
+	background: #f9fcc5;  /* fallback for old browsers */
+}
+
+
+.scrollable{
+	overflow-y: scroll;
+	height: 800px;
+}
