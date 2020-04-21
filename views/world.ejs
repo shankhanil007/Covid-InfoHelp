@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+	
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="/stylesheets/world.css">
+	
+    <style>
+        * {
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif
+        }
+        /* h1, h2, h3, h4, h5, h6 {
+            color: #444444;
+            font-weight: 100;
+        } */
+        body {
+            background-color: #353538;
+            margin: 0px;
+        }
+        path {
+            stroke: white;
+            stroke-width: 0.25px;
+            fill: #808080;
+        }
+        .details {
+            top: 0px;
+            visibility: hidden;
+            width: 300px;
+            padding: 30px;
+            height: 100%;
+            opacity: 0.4;
+            position: absolute;
+            background-color: aliceblue;
+            font-size: 50px;
+        }
+        .center {
+            text-align: center;
+        }
+		
+		svg{
+			width: 1300px;
+			height: 600px;
+		}
+		
+	 body { 
+            animation: fadeInAnimation ease 1s; 
+            animation-iteration-count: 1; 
+            animation-fill-mode: forwards; 
+        } 
+        @keyframes fadeInAnimation { 
+            0% { 
+                opacity: 0; 
+            } 
+            100% { 
+                opacity: 1; 
+            } 
+        } 
+		
+    </style>
+</head>
+
+
+<body>
+	
+<h1 class="center">2020 World Covid spread </h1>
+
+
+<div class="row">
+	<div class="col-xl-3 d-flex justify-content-center">
+		<div class="d-flex flex-column justify-content-center"style="background-color: #414345; height: 90%; width: 80%; margin-top: 20px;">
+			<center>
+				<div>
+					<h4 style="color: white; font-family: archia; font-weight: 600; margin-bottom: 4px; margin-top:15px;">Total Cases</h4>
+					<h1 style="color: #ff073a; font-weight: 600; font-family:archia; letter-spacing: 0.1rem; margin-bottom: 20px;"><%= c %></h1>
+				</div>
+				<div>
+					<h4 style="color: white; font-family: archia; font-weight: 600; margin-bottom: 4px;">Active</h4>
+					<h1 style="color: rgba(0,123,255,.76); font-weight: 600; font-family:archia; letter-spacing: 0.1rem; margin-bottom: 20px;"><%=a%></h1>		
+				</div>
+				<div>
+					<h4 style="color: white; font-family: archia; font-weight: 600; margin-bottom: 4px;">Recovered</h4>
+					<h1 style="color: #28a745; font-weight: 600; font-family:archia; letter-spacing: 0.1rem; margin-bottom: 20px;"><%=r%></h1>
+				</div>
+				<div>
+					<h4 style="color: white; font-family: archia; font-weight: 600; margin-bottom: 4px;">Deaths</h4>
+					<h1 style="color:#6c757d; font-weight: 600; font-family:archia; letter-spacing: 0.1rem; margin-bottom: 20px;"><%=d%></h1>
+				</div>
+			</center>	
+		</div>	
+	</div>
+	
+	<div class="col-xl-9">
+		<div class="map d-flex justify-content-center">
+	</div>
+</div>
+</div>
+	
+	
+	
+	
+<div class="scrollable" style="width: 1100px;margin: 50px auto;">	
+	<table class="table table-striped table-dark" border="1" cellspacing="0" cellpadding="3" >
+		<thead>
+			<tr style="text-align: center;">
+			<th>S. No.</th>
+			<th>Country</th>
+			<th style="color: #ff0000;">Confirmed </th> 
+			<th style="color: #4ed1e6;">Active</th>
+			<th style="color: #11d414;">Recovered</th>
+			<th style="color: #e9f0e9;">Death</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<% var i=1; %>
+			<% arr.splice(5, 0, arr[210]); %>               <!-- TO change the position of an element in an array -->
+			<% arr.pop() %>
+			<% arr.forEach(function(info){ %>
+			<tr>
+				<td> <%= i %></td>
+				<td> <%= info.country%> </td>
+				<td style="color: #f54747"> <%= info.cases%>  </td>
+				<td style="color: #4ed1e6;"> <%= info.active%>  </td>
+				<td style="color: #11d414;"> <%= info.recovered%> </td>
+				<td style="color: #e9f0e9;"> <%= info.deaths%> </td>
+				<% i++ %>
+			</tr>
+			<% }); %>
+		</tbody>
+	</table>		
+</div>
+	
+	
+	
+	
+	
+
+	
+	
+	
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.js"></script>
+<script type="text/javascript" src="/javascript/world.js"></script>
+	
+	
+</body>
+</html>

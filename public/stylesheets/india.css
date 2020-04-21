@@ -1,0 +1,130 @@
+    /* * {
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif
+        } */
+        h1, h2, h3, h4, h5, h6 {
+            color: #444444;
+            font-weight: 100;
+        }
+        body {
+            margin: 0px;
+			background-color: #eef3f7;
+
+        }
+        path {
+            stroke: black;
+            stroke-width: 0.05px;
+            fill: #808080;
+        }
+        .detail {
+            top: 0px;
+            /* width: 800px; */
+            /* padding: 30px; */
+            height: 70px;
+            /* opacity: 0.4; */
+            /* position: absolute; */
+            /* background-color: aliceblue; */
+            /* font-size: 25px; */
+        }
+        .center {
+            text-align: center;
+        }
+		
+		
+		.info{
+			float:left;
+			background: #71808F;
+		}
+		
+		.row.first{
+			margin: 50px auto;	
+			margin-bottom: 0px;
+		}
+		
+
+td{
+	font-size: 15px;
+}
+
+
+
+
+.hidden{
+	visibility: hidden;
+}
+svg{
+	height: 550px;
+	width: 550px;
+	margin-bottom:0px;
+	
+}
+
+.state{
+	visibility: hidden;
+}
+
+.table td{
+	padding: 4px;
+	border: 2px solid black;
+	text-align: center;
+}
+
+/* .col-lg-7{
+	height: 700px;
+} */
+
+canvas{
+	background-color:#2f3030;
+	color: white;
+	font-size:75px;
+}
+body{
+	background: #abbaab;  /* fallback for old browsers */
+
+
+}
+
+
+
+
+
+
+
+
+
+/* -------------------------------- */
+
+/* .col-lg-7{
+	height: 700px;
+	margin: 2.5%;
+}
+
+.col-lg-5{
+	margin: 2.5%;
+}
+ */
+
+/* .table.table-striped.table-dark
+{
+	margin: 0 auto;
+} */
+
+.container{
+	max-width: 1340px;
+}
+
+.square{
+	margin-right: 10px;
+	margin-top: 10px;
+	height: 70px;
+	/* max-width:200px; */
+}
+
+.scrollable{
+	overflow-y: scroll;
+	width: 630px;
+	height: 600px;
+	margin: 0px auto;
+}
+
+
+
