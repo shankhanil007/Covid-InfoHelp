@@ -1,14 +1,10 @@
-    /* * {
+    * {
             font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif
-        } */
-        h1, h2, h3, h4, h5, h6 {
-            color: #444444;
-            font-weight: 100;
         }
+        
         body {
             margin: 0px;
-			background-color: #eef3f7;
-
+			background-color: #eef0dd;
         }
         path {
             stroke: black;
@@ -17,114 +13,91 @@
         }
         .detail {
             top: 0px;
-            /* width: 800px; */
-            /* padding: 30px; */
             height: 70px;
-            /* opacity: 0.4; */
-            /* position: absolute; */
-            /* background-color: aliceblue; */
-            /* font-size: 25px; */
         }
         .center {
             text-align: center;
         }
+				
 		
+
+		.hidden{
+			visibility: hidden;
+		}
+
+		svg{
 		
-		.info{
-			float:left;
-			background: #71808F;
+			margin-bottom:0px;	
+		}
+
+		.state{
+			visibility: hidden;
+			padding-left: 10px;
+		}
+
+		.table.table-striped.table-dark td{
+			padding: 7px;
+			border: 2px solid black;
+			text-align: center;
+			font-size: 18px;
+		}
+
+		.table thead th{
+			font-size: 21px;
+			border: 2px solid black;
+		}
+
+		canvas{
+			background-color:#2f3030;
+			color: white;
+			font-size:75px;
+		}
+
+		
+
+		.square{
+			margin-right: 10px;
+			margin-top: 10px;
+			height: 70px;
+			
+		}
+
+		.scrollable{
+			overflow-y: scroll;
+			height: 600px;
+			margin: 0px auto;
 		}
 		
-		.row.first{
-			margin: 50px auto;	
-			margin-bottom: 0px;
+		.navbar.scrolled{
+			background-color: red;
+			transition: background 500ms;
 		}
 		
+		#mainNavbar .nav-link:hover{
+            color: #001ee0;
+        }
+		
+		.navbar .navbar-brand{
+			color: white;
+		}
+		
+		.navbar .nav-link{
+			color: white;
+		}
 
-td{
-	font-size: 15px;
-}
-
-
-
-
-.hidden{
-	visibility: hidden;
-}
-svg{
-	height: 550px;
-	width: 550px;
-	margin-bottom:0px;
-	
-}
-
-.state{
-	visibility: hidden;
-}
-
-.table td{
-	padding: 4px;
-	border: 2px solid black;
-	text-align: center;
-}
-
-/* .col-lg-7{
-	height: 700px;
-} */
-
-canvas{
-	background-color:#2f3030;
-	color: white;
-	font-size:75px;
-}
-body{
-	background: #abbaab;  /* fallback for old browsers */
+		html,
+  body{
+    width:100%;
+    overflow-x:hidden;
+  }
 
 
-}
+  p.Covid-info{
+	font-family: 'Londrina Outline', cursive;
+	font-size: 45px;
+  }
 
-
-
-
-
-
-
-
-
-/* -------------------------------- */
-
-/* .col-lg-7{
-	height: 700px;
-	margin: 2.5%;
-}
-
-.col-lg-5{
-	margin: 2.5%;
-}
- */
-
-/* .table.table-striped.table-dark
-{
-	margin: 0 auto;
-} */
-
-.container{
-	max-width: 1340px;
-}
-
-.square{
-	margin-right: 10px;
-	margin-top: 10px;
-	height: 70px;
-	/* max-width:200px; */
-}
-
-.scrollable{
-	overflow-y: scroll;
-	width: 630px;
-	height: 600px;
-	margin: 0px auto;
-}
-
-
-
+  table.table a{
+	  color: white;
+	  text-decoration: underline;
+  }

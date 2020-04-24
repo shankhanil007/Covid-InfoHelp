@@ -3,20 +3,24 @@ var width = Math.max(document.documentElement.clientWidth, window.innerWidth || 
 
 var svg = d3.select('.map')
     .append("svg");
-    // .style("cursor", "move");
 
-	svg.attr("viewBox", "920 426 80 50");
-    // .attr({ 'preserveAspectRatio': 'xMinYMin slice' });
-	// svg.attr("wdth","500px");
-	// svg.attr("height","500px");
+    var x = window.matchMedia("(max-width: 480px)")
+    myFunction(x) // Call listener function at run time
+    x.addListener(myFunction)
+    function myFunction(x) {
+        if (x.matches) { 
+            svg.attr("viewBox", "348 358 70 75")
+            // svg.attr("viewbox","50 10 "+width+" "+height)
+          .attr("preserveAspectRatio", "xMinYMin");
+          
+        } else {
+            svg.attr("viewBox", "920 413 70 75")
+            .attr("preserveAspectRatio", "xMinYMin");
+        }
+      }
 
-var zoom = d3.zoom()
-    .on("zoom", function () {
-        var transform = d3.zoomTransform(this);
-        map.attr("transform", transform);
-    });
-
-svg.call(zoom);
+	// svg.attr("viewBox", "920 431 80 50");
+    
 
 var map = svg.append("g")
     .attr("class", "map");
@@ -47,8 +51,8 @@ function drawMap(states, data) {
         // .domain([10000, 100000, 500000, 1000000, 5000000, 10000000, 50000000, 100000000, 500000000, 1500000000])
         // .range(["#f7fcfd", "#e0ecf4", "#bfd3e6", "#9ebcda", "#8c96c6", "#8c6bb1", "#88419d", "#810f7c", "#4d004b"]);
 	
-		.domain([0, 100, 200, 300, 400, 500, 600, 700, 800,])
-		.range(["#fff5f0", "#fee0d2", "#fcbba1", "#fc9272", "#fb6a4a", "#ef3b2c", "#cb181d", "#a50f15", "#67000d"]);
+		.domain([1,30, 90, 150, 200, 500, 800, 1000, 2000, 3000,4000, 5000])
+		.range(["#fff5f0", "#fee0d2", "#fcbba1", "#fc9272", "#fb6a4a", "#ef3b2c", "#db181d", "#a50f15","#b82f25","#912c24", "#67000d",'#7d0f0f']);
 
     var features = topojson.feature(states, states.objects.india).features;
     var populationById = {};

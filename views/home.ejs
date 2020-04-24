@@ -1,27 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+   <!-- Make site responsive on mobile/tablet -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    
 	<title></title>
 </head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" integrity="sha384-REHJTs1r2ErKBuJB0fCK99gCYsVjwxHrSU0N7I1zl9vZbggVJXRMsv/sLlOAGb4M" crossorigin="anonymous">
-	<link rel="stylesheet" href="/stylesheets/home.css">
-<body>
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.15.0/css/mdb.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lora|PT+Sans|PT+Serif|Roboto+Condensed&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Londrina+Outline|Monoton&display=swap" rel="stylesheet">
+
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue.css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="/stylesheets/home.css">
 
 
-	
-<nav class="navbar navbar-expand-lg navbar-light bg-light" sryle="width: 1">
+<body >
+
+
+
+
+
+<nav id="mainNavbar" class="navbar navbar-expand-lg  navbar-dark w3-theme-d4 fixed-top pt-0 mb-5" style="width: 1">
   <img src="/images/virus.png" style="width: 40px; height: 40px; margin-right: 10px; margin-left: 40px;">
   <a class="navbar-brand" href="#">Covid Info</a>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
+    <span class="navbar-toggler-icon" ></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="nav navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home </a>
       </li>
      
       <li class="nav-item dropdown">
@@ -29,148 +52,444 @@
           Stats
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">World Stats</a>
-          <a class="dropdown-item" href="#">India Stats</a>
+          <a class="dropdown-item" href="/world">World Stats</a>
+          <a class="dropdown-item" href="/india">India Stats</a>
+	  </li>
+	  
+	  <li class="nav-item">
+        <a class="nav-link" href="/news">News</a>
+	  </li>
+	  <li class="nav-item">
+        <a class="nav-link" href="/info">Essentials</a>
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-right" style=" margin-right: 70px;">
     	<li> <a class="nav-link" href="/">Login</a> </li>
     	<li> <a class="nav-link" href="/">Sign Up</a> </li>
-	  </ul>
-    
+	  </ul>   
   </div>
 </nav>
 
-<!-- <div class="container"> -->
-	<div class="jumbotron">
-	  
-	  <h1 class="display-4"><img src="/images/virus.png" style="width: 100px; height: 100px; margin-right: 10px; margin-left: 40px;">Covid-19</h1>
-	  <p class="lead">Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus.Most people infected with the COVID-19 virus will experience mild to moderate respiratory illness and recover without requiring special treatment.  Older people, and those with underlying medical problems like cardiovascular disease, diabetes, chronic respiratory disease, and cancer are more likely to develop serious illness.</p>
-	  <hr class="my-4">
-	  <p>The COVID-19 virus spreads primarily through droplets of saliva or discharge from the nose when an infected person coughs or sneezes, so it’s important that you also practice respiratory etiquette (for example, by coughing into a flexed elbow).
 
-At this time, there are no specific vaccines or treatments for COVID-19. However, there are many ongoing clinical trials evaluating potential treatments. WHO will continue to provide updated information as soon as clinical findings become available.</p>
-	  <p class="lead">
-		<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-	  </p>
+
+
+<div class=row>
+	<div class="col-sm-12" style="padding-left: 0px; padding-right: 0px; margin: 0;">
+		<div class="jumbotron covid" style="background-image: url(https://ak6.picdn.net/shutterstock/videos/5483036/thumb/1.jpg); color: white;   margin-top: 50px; padding-top: 30px;">
+			<div style="padding-left: 15px; padding-right: 15px;" >
+			<h1 class="display-4">
+				<!-- <img src="/images/virus.png" style="width: 100px; height: 100px; margin-right: 10px; margin-left: 40px;"> -->
+				Covid-19</h1>
+			<p class="lead one" style="font-size: 21px;">Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus.Most people infected with the COVID-19 virus will experience mild to moderate respiratory illness and recover without requiring special treatment.  Older people, and those with underlying medical problems like cardiovascular disease, diabetes, chronic respiratory disease, and cancer are more likely to develop serious illness.</p>
+			<hr class="my-4">
+			<p class="bottom" style=" letter-spacing: 0.09rem;">The COVID-19 virus spreads primarily through droplets of saliva or discharge from the nose when an infected person coughs or sneezes, so it’s important that you also practice respiratory etiquette (for example, by coughing into a flexed elbow).
+				At this time, there are no specific vaccines or treatments for COVID-19. However, there are many ongoing clinical trials evaluating potential treatments. WHO will continue to provide updated information as soon as clinical findings become available.</p>
+			<p class="lead">
+				<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+			</p>
+			</div>
+		</div>
 	</div>
-<!-- </div> -->
-
-
-
-
+</div>
 	
-<div class="row" style="margin-left: 100px;">
-	<div class="col-xl-3 d-flex justify-content-center">
-		<div class="d-flex flex-column justify-content-center"style="background-color: #414345; height: 90%; width: 80%; margin-top: 20px;">
+
+
+
+<div class="row" style="margin-top: 20px;">
+	<div class="col-xl-4  col-sm-12 d-flex justify-content-center align-items-center">
+		<div class="xyz" style="background-color: #193a94; width: 70%; padding: 20px 0 25px 0">
 			<center>
 				<div>
-					<h4 style="color: white; font-family: archia; font-weight: 600; margin-bottom: 4px; ">Total Cases</h4>
-					<h1 style="color: #ff073a; font-weight: 600; font-family:archia; letter-spacing: 0.1rem; margin-bottom: 20px;"><%= c %></h1>
+					<h4 style="color: white; font-family: archia; font-weight: 600;">Total Cases</h4>
+					<div id="">
+						<h1 style="color: #ff073a; font-weight: 700; font-family:archia; letter-spacing: 0.2rem; "><%=c%></h1>
+					</div>
 				</div>
 				<div>
-					<h4 style="color: white; font-family: archia; font-weight: 600; margin-bottom: 4px;">Active</h4>
-					<h1 style="color: rgba(0,123,255,.76); font-weight: 600; font-family:archia; letter-spacing: 0.1rem; margin-bottom: 20px;"><%=a%></h1>		
+					<h4 style="color: white; font-family: archia; font-weight: 600; ">Active</h4>
+					<div id="">
+						<h1 style="color: #4475fc; font-weight: 700; font-family:archia; letter-spacing: 0.2rem;"><%=a%></h1>		
+					</div>
 				</div>
 				<div>
-					<h4 style="color: white; font-family: archia; font-weight: 600; margin-bottom: 4px;">Recovered</h4>
-					<h1 style="color: #28a745; font-weight: 600; font-family:archia; letter-spacing: 0.1rem; margin-bottom: 20px;"><%=r%></h1>
+					<h4 style="color: white; font-family: archia; font-weight: 600; ">Recovered</h4>
+					<div id="">
+						<h1 style="color: #28a745; font-weight: 700; font-family:archia; letter-spacing: 0.2rem;"><%=d%></h1>
+					</div>
 				</div>
 				<div>
-					<h4 style="color: white; font-family: archia; font-weight: 600; margin-bottom: 4px;">Deaths</h4>
-					<h1 style="color:#6c757d; font-weight: 600; font-family:archia; letter-spacing: 0.1rem; margin-bottom: 20px;"><%=d%></h1>
+					<h4 style="color: white; font-family: archia; font-weight: 600; ">Deaths</h4>
+					<div id="">
+						<h1  style="color:#6c757d; font-weight: 700; font-family:archia; letter-spacing: 0.2rem; "><%=r%></h1>
+					</div>
 				</div>
 				
-				<button class="btn btn-info">Check World Stats</button>
-			</center>	
-			
-		</div>	
-		
+				<a class="btn btn-info btn-lg" href="/world" role="button">Check World Stats</a>
+			</center>			
+		</div>		
 	</div>
 	
-	<div class="col-xl-9">
-		<div class="map d-flex justify-content-center">
+	<div class="col-xl-8 col-12" >
+		<div class="map "><span style="padding-top: 40px;  color: white;">Hover over any Place</span> </div>
 	</div>
 </div>
-</div>
-	
-	
-	
-	
 
 	
-<div class="jumbotron">
-	  
-	  <h1 class="display-4">India Under Lockdown</h1>
-	  <p class="lead">On 24 March, the Government of India under Prime Minister Narendra Modi ordered a nationwide lockdown for 21 days, limiting movement of the entire 1.3 billion population of India as a preventive measure against the 2020 coronavirus pandemic in India.[1] It was ordered after a 14-hour voluntary public curfew on 22 March, followed by enforcement of a series of regulations in the country's COVID-19 affected regions.</p>
-	  <hr class="my-4">
-	
-	<div class="container">
-		
-	<div class="row d-flex justify-content-around" style="text-align:center;">
-			<div class="col-xl-2 col-lg-3 col-sm-5 col-5 square" style="background-color:rgba(255,7,58,0.13); border-radius: 7%; padding-top: 22px; ">
-				<h4 style=" font-family: archia; font-weight: 600; color: #ff073a; margin-bottom: 0px; text-align:center;">Confirmed</h4>
-				
-					<h1  style="color: #ff073a; font-weight: 600; font-family:archia; letter-spacing: 0.1rem;"><b><%=ic%></b></h1>
-			
+
+
+
+
+<div class="jumbotron w3-theme-l4" style="margin: 25px 0 0 0; padding-left: 60px; padding-right: 40px; ">
+	<h1 class="display-4">India Under Lockdown</h1>
+	<p class="lead two">On 24 March, the Government of India under Prime Minister Narendra Modi ordered a nationwide lockdown for 21 days, limiting movement of the entire 1.3 billion population of India as a preventive measure against the 2020 coronavirus pandemic in India.[1] It was ordered after a 14-hour voluntary public curfew on 22 March, followed by enforcement of a series of regulations in the country's COVID-19 affected regions.</p>
+	<hr class="my-4">
+  
+  <div class="container">
+	  <div class="row x d-flex justify-content-around" style="text-align:center;">
+			<div class="col-xl-2 col-lg-3 col-sm-5 col-5 square" style="background-color:rgba(255,7,58,0.22); border-radius: 7%; padding-top: 16px; margin-top: 20px;">
+				<h3 style="font-size: 20px; font-family: archia; font-weight: 600; color: #ff073a; margin-bottom: 0px; text-align:center;">Confirmed</h3>
+				<div id="counter">
+				<h1 class="counter-value" data-count="<%=ic%>"  style="font-size: 32px; color: #ff073a; font-weight: 600; font-family:archia; letter-spacing: 0.1rem; margin-top: 0;"><b>0</b></h1>
+				</div>
 			</div>
 			
-			<div class="col-xl-2 col-lg-3 col-sm-5 col-5 square" style="background-color:rgba(0,123,255,.1627451); border-radius: 7%; padding-top: 22px;">
-				<h4 style=" font-family: archia; font-weight: 600; color: rgba(0,123,255,.76); margin-bottom: 0px; text-align:center;">Active</h4>
-				
-					<h1  style="color: rgba(0,123,255,.76); font-weight: 600; font-family:archia; letter-spacing: 0.1rem; "><b><%=ia%></b></h1>
-			
+			<div class="col-xl-2 col-lg-3 col-sm-5 col-5 square" style="background-color:rgba(0,123,255,.25); border-radius: 7%; padding-top: 16px; margin-top: 20px;">
+				<h3 style="font-size: 20px; font-family: archia; font-weight: 600; color: rgba(0,123,255,.76); margin-bottom: 0px; text-align:center;">Active</h3>
+				<div id="counter">
+				<h1 class="counter-value" data-count="<%=ia%>"  style="font-size: 32px; color: rgba(0,123,255,.76); font-weight: 600; font-family:archia; letter-spacing: 0.1rem; margin-top: 0; "><b>0</b></h1>
+				</div>
 			</div>
 
-			<div class="col-xl-2 col-lg-3 col-sm-5 col-5 square" style="background-color:rgba(40,167,69,.13); padding-top: 22px; border-radius: 7%;">
-				<h4 style=" font-family: archia; font-weight: 600;     color: #28a745; margin-bottom: 0px; text-align:center; letter-spacing: 0.1rem;">Recovered</h4>
-				
-					<h1  style="color: #28a745; font-weight: 600; font-family:archia; "><b> <%=ir%></b></h1>
-				
+			<div class="col-xl-2 col-lg-3 col-sm-5 col-5 square" style="background-color:rgba(40,167,69,.29); padding-top: 16px; border-radius: 7%; margin-top: 20px;">
+				<h3 style="font-size: 20px; font-family: archia; font-weight: 600;     color: #28a745; margin-bottom: 0px; text-align:center; ">Recovered</h3>
+				<div id="counter">
+				<h1 class="counter-value" data-count="<%=ir%>"  style="font-size: 32px; color: #28a745; font-weight: 600; font-family:archia; letter-spacing: 0.1rem; margin-top: 0;"><b> 0</b></h1>
+			</div>
 			</div>
 
-			<div class="col-xl-2 col-lg-3 col-sm-5 col-5  square" style="background-color:rgba(108,117,125,.16); padding-top: 22px; border-radius: 7%;">
-				<h4 style=" font-family: archia; font-weight: 600; color: rgba(108,117,125,.9); margin-bottom: 0px; text-align:center; letter-spacing: 0.1rem;">Deaths</h4>
-				
-					<h1  style="color: #6c757d; font-weight: 600; font-family:archia; "><b><%=id%></b></h1> 
-				
+			<div class="col-xl-2 col-lg-3 col-sm-5 col-5  square" style="background-color:rgba(108,117,125,.26); padding-top: 16px; border-radius: 7%; margin-top: 20px;">
+				<h3 style="font-size: 20px; font-family: archia; font-weight: 600; color: rgba(108,117,125,.9); margin-bottom: 0px; text-align:center;">Deaths</h3>
+				<div id="counter">
+				<h1 class="counter-value" data-count="<%=id%>"  style="font-size: 32px; color: #6c757d; font-weight: 600; font-family:archia; letter-spacing: 0.1rem; margin-top: 0; "><b>0</b></h1> 
+			</div>
 			</div>
 		</div>
 	</div>
 	
-	
-	
-	  
-	  <p class="lead" style="margin-top: 20px;">
-		  Stay indoors and stay healthy
-	  </p>
-		<a class="btn btn-success btn-lg" href="#" role="button">Check India Stats</a>
-	
-	</div>	
+	<p class="lead" style="margin-top: 20px;">Stay indoors and stay healthy</p>
+	<a class="btn btn-success btn-lg" href="/india" role="button">Check India Stats</a>
+</div>	
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>	
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.js"></script>
-<script type="text/javascript" src="/javascript/world.js"></script>
 
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+
+
+<!-- image gallery -->
+
+<div id="portfolio" class="container-fluid text-center" style="background-color: #ff810a">
+	<h2 class="awareness">Be <strong>READY</strong> to fight <strong>#COVID-19</strong></h2><br>
+	<div class="row text-center slideanim">
+	  <div class="col-sm-4" style="margin-bottom: 20px;">
+		<div class="thumbnail">
+		  <img class="img-fluid" src="https://www.ecdc.europa.eu/sites/default/files/styles/is_large/public/images/COVID-19-infographic.png.png?itok=Z7zsS_Aj" alt="Paris">
+		</div>
+	  </div>
+	  <div class="col-sm-4" style="margin-bottom: 20px;">
+		<div class="thumbnail">
+		  <img class="img-fluid" src="https://image.shutterstock.com/image-vector/coronavirus-covid19-2019ncov-infographic-showing-600w-1663453870.jpg" alt="New York"  style="height: 450px;">
+		 
+		</div>
+	  </div>
+	  <div class="col-sm-4">
+		<div class="thumbnail">
+		  <img class="img-fluid" src="https://www.who.int/images/default-source/default-album/mask-advice.jpg?sfvrsn=ad986fd_0" alt="San Francisco" >
+		  
+		</div>
+	  </div>
+	</div><br>
+	
+	
+
+	<!--Carousel Wrapper-->
+<div id="carousel-example-1z" class="carousel slide" data-ride="carousel">
+	<!--Indicators-->
+	<ol class="carousel-indicators">
+	  <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
+	  <li data-target="#carousel-example-1z" data-slide-to="1"></li>
+	  <li data-target="#carousel-example-1z" data-slide-to="2"></li>
+	</ol>
+	<!--/.Indicators-->
+	<!--Slides-->
+	<div class="carousel-inner" role="listbox">
+	  <!--First slide-->
+	  <div class="carousel-item active">
+		<h3>Cover your nose and mouth with a disposable tissue or flexed elbow when you cough or sneeze</h3>
+	  </div>
+	  <!--/First slide-->
+	  <!--Second slide-->
+	  <div class="carousel-item">
+		<h3>Avoid close contact (1 meter or 3 feet) with people who are unwell</h3>
+	  </div>
+	  <!--/Second slide-->
+	  <!--Third slide-->
+	  <div class="carousel-item">
+		<h3>Wash your hands regularly for 20 seconds, with soap and water or alcohol-based hand rub</h3>
+	  </div>
+	  <!--/Third slide-->
+	</div>
+	<!--/.Slides-->
+	<!--Controls-->
+	<a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
+	  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+	  <span class="sr-only">Previous</span>
+	</a>
+	<a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
+	  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+	  <span class="sr-only">Next</span>
+	</a>
+	<!--/.Controls-->
+  </div>
+  <!--/.Carousel Wrapper-->  
+ </div>
+
+
+	
+	
+	
+<!-- pdf -->
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="faq-content">
+				<embed src="/pdf/FAQ.pdf" type="application/pdf" width="100%" height="900px">
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid" style="padding-bottom: 120px; background-color: #008dc9;">
+	<div class="container">
+		<div class="row slideanim" style="margin-top: 40px ;">
+			<div class="col-lg-4" style="margin-bottom: 20px;">
+				<div class="card">
+					<iframe  width="100%" height="300px" src="https://www.youtube.com/embed/dK-O0Bv7HK4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<div class="card-body">
+						<h4 class="card-title" style="font-size: 18px;"><a>Wash your hands regularly to protect yourself & your loved ones</a></h4>
+						<p class="card-text" style="font-size: 16px; color: #5f6368;"> Ministry of Health & Family Welfare </p>
+					  </div>
+				</div>
+			</div>
+			<div class="col-lg-4" style="margin-bottom: 20px;">
+				<div class="card">
+					<iframe  width="100%" height="300" src="https://www.youtube.com/embed/TH95P9cYhW0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<div class="card-body">
+						<h4 class="card-title" style="font-size: 18px;"><a>Wash your hands regularly to protect yourself & your loved ones</a></h4>
+						<p class="card-text" style="font-size: 16px; color: #5f6368;"> Ministry of Health & Family Welfare </p>
+					  </div>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="card">
+					<iframe width="100%" height="300" src="https://www.youtube.com/embed/CnbWdY8HLjM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<div class="card-body">
+						<h4 class="card-title" style="font-size: 18px;"><a>Wash your hands regularly to protect yourself & your loved ones</a></h4>
+						<p class="card-text" style="font-size: 16px; color: #5f6368;">  Ministry of Health & Family Welfare </p>
+					  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+	
+<!-- contact us	 -->
+	
+<div id="contact" class="container-fluid bg-light">
+  <h2 class="text-center contact">CONTACT</h2>
+	<div class="row">
+		<div class="col-sm-5">
+			<p>Contact us and we'll get back to you within 24 hours.</p>
+			<p><i class="material-icons">&#xe55f;</i>NIT Surat</p>
+			<p><i class="material-icons">&#xe0d4;</i> +00 1515151515</p>
+			<p><i class="material-icons">&#xe0e1;</i> myemail@something.com</p>
+		</div>
+
+		<div class="col-sm-7 slideanim">
+			<div class="row">
+				<div class="col-sm-6 form-group">
+					<input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+				</div>
+				<div class="col-sm-6 form-group">
+					<input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+				</div>
+			</div>
+				<textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+				<div class="row">
+					<div class="col-sm-12 form-group">
+					<button class="btn btn-default pull-right" type="submit">Send</button>
+				</div>
+		</div>
+	</div>
+  </div>
+</div>
+	
+	
+	
+
+
+ <div class="row bg-dark d-flex justify-content-center align-items-center" style=" color: white; height: 150px;">
+	<div class="col-xl-4">
+		<center> <p class="Covid-info" style="margin-bottom: 0;font-weight: 500;"> Covid-Info   </p></center>	
+	</div>
+	<div class="col-xl-4">
+		<center> <p> @ 2020 All rights reserved </p></center>
+	</div>
+	<div class="col-xl-4">
+		<center> <p>Developed by : HyperText Coders </p></center>
+	</div>
+</div>
+	
+	
+	
+		
+	
+	
+	<!-- <script>
+		function myFunction(x) {
+  if (x.matches) { // If media query matches
+	var svg = d3.select(".map")
+    .append("svg")
+    // .style("cursor", "move");
+    svg.attr("viewBox", "-220 -150 900 580")
+    .attr("preserveAspectRatio", "xMinYMin");
+  } else {
+   
+  }
+}
+
+var x = window.matchMedia("(max-width: 480px)")
+myFunction(x) // Call listener function at run time
+x.addListener(myFunction) // Attach listener function on state changes
+
+	</script>
+	 -->
+	
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.js"></script>
+	<script type="text/javascript" src="/javascript/world.js"></script>
+	
+	<!-- JQuery -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!-- Bootstrap tooltips -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<!-- MDB core JavaScript -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.15.0/js/mdb.min.js"></script>
+	
+	<script>
+		$(function () {
+			$(document).scroll(function () {
+				var $nav = $("#mainNavbar");
+				$nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
+			});
+		});
+
+
+
+
+		$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+	});
+  });
+
+
+})
+
+
+
+$(window).scroll(function() {
+var a=0
+  var oTop = $('#counter').offset().top - window.innerHeight;
+  if (a==0  && $(window).scrollTop() > oTop) {
+    $('.counter-value').each(function() {
+      var $this = $(this),
+        countTo = $this.attr('data-count');
+      $({
+        countNum: $this.text()
+      }).animate({
+          countNum: countTo
+        },
+
+        {
+
+          duration: 2000,
+          easing: 'swing',
+          step: function() {
+            $this.text(Math.floor(this.countNum));
+          },
+          complete: function() {
+            $this.text(this.countNum);
+            //alert('finished');
+          }
+
+        });
+    });
+    a = 1;
+  }
+
+});
+
+
+
+function slide()
+{
+	$("xyz").slideUp(3000,function(){
+
+	});
+}
+
+
+</script>
+	
+
+
 </body>
 </html>

@@ -1,21 +1,16 @@
-.table td{
-	padding: 4px;
+.table.table-striped.table-dark td{
+	padding: 7px;
 	border: 2px solid black;
 	text-align: center;
+	font-size: 18px;
 }
-
 
 .table thead th{
 	border: 2px solid black;
+	font-weight: 900;
+	font-size: 22px;
 }
 
-/* tr:nth-child(even) {background-color: #eef3f7;}
-		tr:nth-child(odd) {background-color:	white;}
-		tr:hover {background-color: #cdd4d4;}		
- */
-td{
-	font-size: 15px;
-}
 
 .chart-container {
   position: relative;
@@ -23,19 +18,45 @@ td{
 }
 
 
-.row{
-	margin-left: 100px;
-}
 
 .col-lg-2.square{
 	margin: 2.5%;
 }
 body{
-	background: #f9fcc5;  /* fallback for old browsers */
+	background: #75eb87; 
+	margin: 0; 
 }
-
 
 .scrollable{
 	overflow-y: scroll;
-	height: 800px;
+	height: 1000px;
 }
+
+.navbar.scrolled{
+	background-color: red;
+	transition: background 500ms;
+}
+
+#mainNavbar .nav-link:hover{
+	color: #001ee0;
+}
+
+.navbar .navbar-brand{
+	color: white;
+}
+
+.navbar .nav-link{
+	color: white;
+}
+
+p.Covid-info{
+	font-family: 'Londrina Outline', cursive;
+	font-size: 45px;
+  }
+
+
+  html,
+  body{
+    width:100%;
+    overflow-x:hidden;
+  }

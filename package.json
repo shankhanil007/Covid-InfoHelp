@@ -1,10 +1,14 @@
 {
   "name": "covid",
+  "engines": {
+    "node": "12.16.2"
+  },
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +17,7 @@
     "ejs": "^3.0.2",
     "express": "^4.17.1",
     "puppeteer": "^2.1.1",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "twilio": "^3.42.1"
   }
 }
