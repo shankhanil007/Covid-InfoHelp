@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+     <!-- Google Fonts -->
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+     <!-- Bootstrap core CSS -->
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+     <!-- Material Design Bootstrap -->
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.15.0/css/mdb.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue.css">
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     <script src="https://apis.mapmyindia.com/advancedmaps/v1/defcgzvz4xelncj8tlcqrllin9oeuycj/map_load?v=1.3"></script>
+	 <style> 
+	  /* html, body, #map {
+	  	height: 700px;
+	  	width: 700px;
+		} 
+
+		.content{
+			background-color: white;
+			border: 2px solid red;
+            padding: 2px;
+		} */
+
+        #map{
+                height: 98vh;
+                /* width: 100%; */
+            }    
+
+     
+    .navbar-dark .navbar-nav .nav-link{
+        color: white;
+    }
+
+    a.waves-effect, a.waves-light{
+        display: inline;
+    }
+
+
+
+
+
+
+
+</style>
+</head>
+
+<body>
+
+    
+
+    <nav id="mainNavbar" class="navbar navbar-expand-lg  navbar-dark w3-theme-d4 fixed-top pt-0 mb-5" style="width: 1">
+        <a class="navbar-brand" style="padding-left: 20px;"  href="/groceries">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
+          <span class="navbar-toggler-icon" ></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="nav navbar-nav mr-auto">
+            <% if(currentUser){ %>
+              <li> <a class="nav-link" href="/<%=currentUser._id%>/new/seller">Set Up a Shop</a> </li>
+            <li> <a class="nav-link" href="/<%=currentUser._id%>/seller/dashboard">Go to your Shop</a> </li>
+            <% } %>
+          </ul>
+          <ul class="nav navbar-nav navbar-right" style=" margin-right: 70px;">
+            <% if(!currentUser){ %>
+                <li class="<%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>"><a class="nav-link" href="/login">Login</a></li>
+                <li class="<%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>"><a class="nav-link" href="/signup">Sign Up</a></li>
+            <% } else { %>
+                <li><a class="nav-link" href="#">Signed In As <%= currentUser.username %></a></li>
+                <li><a class="nav-link" href="/logout">Logout</a></li>
+            <% } %>
+            </ul>   
+        </div>
+      </nav>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container" style="margin-top: 100px;">
+		<h1 style="text-align: center;"> Enter shop details </h1>
+			
+                <form action="/new/seller" method="POST">
+                    <div style="width: 30%; margin: 20px auto;">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="your name" name="seller[owner]">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="phone no." name="seller[phone]" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="shop name" name="seller[shop]" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="shop description" name="seller[desc]" class="form-control">
+                        </div>
+                        <textarea name="seller[address]" rows="3" cols="30" placeholder="your detailed address" class="form-control"></textarea> <br>
+					</div>
+	
+
+
+<br><br>
+    <!-- <div id="map"></div>; -->
+
+
+    <!-- <script>
+        var map=new MapmyIndia.Map("map",{ center:[28.61, 77.23],zoomControl: true,hybrid:true });
+        map.setZoom(2);
+
+        map.on('click', function(e){
+            L.marker([e.latlng.lat,e.latlng.lng]).addTo(map);
+        })
+
+    </script> -->
+    
+    <div id="map"></div><br>
+    <!-- <button onclick="auto();">autosuggest</button>
+    <button onclick="geocoding();">geocoding</button>
+    <button onclick="rev_geocode();">rev_geocode</button>
+    <button onclick="Many_to_Many_distance_matrix();">Many_to_Many_distance_matrix</button>
+    <button onclick="distance_matrix();">distance_matrix</button> -->
+    
+    <input id="latitude" type="text" placeholder="latitude" name="seller[latitude]" readonly>
+    <input id="longitude" type="text" placeholder="longitude" name="seller[longitude]" readonly>
+    <div style="width: 30%; margin: 20px auto;">
+    <div class="form-group">
+        <button class="btn btn-lg btn-primary btn-block"> SUBMIT </button>
+    </div>
+</form>
+<a href="/">Go Back </a>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+    <!-- // logic -->
+    <script>
+
+    var map = new MapmyIndia.Map('map',
+    {
+        center: [23.5937, 78.9629],
+        zoom: 4.5
+    });
+
+    // map.on('click', function(e){
+    //         L.marker([e.latlng.lat,e.latlng.lng]).on('click',function(){
+    //             map.removeChild(L.marker([e.latlng.lat,e.latlng.lng]));
+    //         });
+           
+    //         L.marker([e.latlng.lat,e.latlng.lng]).addTo(map);
+    //     })
+       
+    var marker = [];
+    
+
+    map.on("dblclick", function (e) {
+                    var title = "Text marker sample!";
+                   addMarker(e.latlng, "", title,true);
+                });
+            
+            function addMarker(position, icon, title, draggable) {
+                /* position must be instance of L.LatLng that replaces current WGS position of this object. Will always return current WGS position.*/
+                var event_div = document.getElementById("event-log");
+                if (icon == '') {
+                    var mk = new L.Marker(position, {draggable: draggable, title: title});/*marker with a default icon and optional param draggable, title */
+                    mk.bindPopup(title);
+                } else {
+                    var mk = new L.Marker(position, {icon: icon, draggable: draggable, title: title});/*marker with a custom icon */
+                    mk.bindPopup(title);
+                }
+                map.addLayer(mk);/*add the marker to the map*/
+                /* marker events:*/
+                mk.on("click", function (e) {
+                    map.removeLayer(mk);// event_div.innerHTML = "Marker clicked<br>" + event_div.innerHTML;
+                    document.getElementById("latitude").value= null;
+                    document.getElementById("longitude").value= null;
+                });
+
+                document.getElementById("latitude").value= position.lat;
+                document.getElementById("longitude").value= position.lng;
+
+
+                mk.on("dragstart", function (e) {
+                    // event_div.innerHTML = "Marker drag start<br>" + event_div.innerHTML;
+                });
+                mk.on("dragend", function (e) {
+                    var pt = e.target._latlng;/*event returns lat lng of dragged position*/
+                    document.getElementById("latitude").value= pt.lat;
+                    document.getElementById("longitude").value= pt.lng;
+                   
+                    // mk.setLatLng(pt);/*set marker position to dragged position*/
+                    // event_div.innerHTML = "Draggable:</br> lat:" + pt.lat + "</br>lng:" + pt.lng + "</br>";
+                });
+                // marker.push(mk);
+                // map.setView(mk.getLatLng());/*get the wgs locaton from marker and set the location into center*/
+
+
+
+
+
+            }
+
+
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        var token;
+        function jsonp(url, callback) {
+            const callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
+            const script = document.createElement('script');
+            script.src = url + (url.indexOf('?') >= 0 ? '&' : '?') + 'callback=' + callbackName;
+            document.body.appendChild(script);
+            window[callbackName] = function(data) {
+                delete window[callbackName];
+                document.body.removeChild( script );
+                callback(data);
+            };
+        }
+        
+        // token generating
+        function Auth_token_generate(){
+            $.ajax({
+                data: {
+                "grant_type": "client_credentials",
+                "client_id": "tqmOL226c0F96u4H8cN1tfEKGDXHBYp6eO_YLZf1LtoDapMxLe3X0rTOfKqHVt_JhSqlFO93ETE9Nayfj33qLpD4hk4NjGtF",
+                "client_secret": "9K_q_9Q2GHPamrycGIX45UArkEu1NkMQBvuG7AKcKJaldcUZUaNGybp_aMXiAGsakq4tDZr9r4aU3ncBLi62TIyOpWd-hQjEN3tpEVpdw8Y="
+                },
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                method: 'POST',
+                crossDomain: true, 
+                async: true,
+                url: 'https://outpost.mapmyindia.com/api/security/oauth/token',
+                error: function (data) {
+                    console.log(data);
+                    alert('An error has occurred');
+                },
+                success : function (data) {
+                    token = data.access_token;
+                    console.log(token);
+                }
+            });    
+        }
+
+        // call autosuggest api
+        function auto(){
+            jsonp('https://atlas.mapmyindia.com/api/places/search/json?query=delhi&access_token='+token, function(data) {
+                console.log(data);
+                alert(JSON.stringify(data));
+            });
+        }   
+
+        // call geocoding api
+        function geocoding(){
+            jsonp('https://atlas.mapmyindia.com/api/places/geocode?address=mapmyindia 237 okhla phase 3&access_token='+token, function(data) {
+                console.log(data);
+                alert(JSON.stringify(data));
+            });
+        }
+
+        // call rev_geocode api
+        function rev_geocode(){
+            jsonp('http://apis.mapmyindia.com/advancedmaps/v1/'+token+'/rev_geocode?lat=26.5645&lng=85.9914', function(data) {
+                console.log(data);
+                alert(JSON.stringify(data));
+            });
+        }
+
+         // call Many_to_Many_distance_matrix api
+        function Many_to_Many_distance_matrix(){
+            jsonp('https://apis.mapmyindia.com/advancedmaps/v1/7r4hn3l87r236emyki35ltxuf3c6rmbx/distance_matrix/driving/77.983936,28.255904;77.05993,28.487555;77.15993,28.587555;77.264997,28.554534?sources=0;1&destinations=2;3', function(data) {
+                console.log(data);
+                alert(JSON.stringify(data));
+            });
+        }
+
+        // call distance_matrix api
+        function distance_matrix(){
+            jsonp('https://apis.mapmyindia.com/advancedmaps/v1/<REST_KEY>/distance_matrix/driving/90.33687,23.470314;90.379249,23.497178;90.497009,23.546286?rtype=1&region=bgd', function(data) {
+                console.log(data);
+                alert(JSON.stringify(data));
+            });
+        }
+        
+    </script>
+      
+
+		<!-- JQuery -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- Bootstrap tooltips -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <!-- MDB core JavaScript -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.15.0/js/mdb.min.js"></script>	
+</body>
+</html>
+
+
