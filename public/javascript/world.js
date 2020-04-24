@@ -4,12 +4,31 @@
 var width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0),
     height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
+
+      
+
+
 var svg = d3.select(".map")
     .append("svg")
     // .style("cursor", "move");
 
-svg.attr("viewBox", "270 80 936 600")
-    .attr("preserveAspectRatio", "xMinYMin");
+
+    var x = window.matchMedia("(max-width: 480px)")
+    myFunction(x) // Call listener function at run time
+    x.addListener(myFunction)
+    function myFunction(x) {
+        if (x.matches) { // If media query matches
+          svg.attr("viewBox", "-220 -10 900 630")
+          .attr("preserveAspectRatio", "xMinYMin");
+        } else {
+            svg.attr("viewBox", "310 100 1000 580")
+            .attr("preserveAspectRatio", "xMinYMin");
+        }
+      }
+
+
+    // svg.attr("viewBox", "310 100 1000 580")
+    // .attr("preserveAspectRatio", "xMinYMin");
 
 // var zoom = d3.zoom()
 //     .on("zoom", function () {
@@ -24,7 +43,7 @@ var map = svg.append("g")
 
 d3.queue()
     .defer(d3.json, "json/50m.json")
-    .defer(d3.json, "https://corona.lmao.ninja/countries")
+    .defer(d3.json, "https://corona.lmao.ninja/v2/countries")
     .await(function (error, world, data) {
         if (error) {
             console.error('Oh dear, something went wrong: ' + error);
@@ -145,8 +164,8 @@ function drawMap(world, data) {
 		 	d3.select(".death")
                 .text(d.details && d.details.deaths && "Active " + d.details.deaths || "");
 
-            d3.select('.details')
-                .style('visibility', "visible")
+            // d3.select('.details')
+            //     .style('visibility', "visible")
 			
 			return tooltip2.style("visibility", "visible");
         })
@@ -156,8 +175,8 @@ function drawMap(world, data) {
                 .style("stroke", null)
                 .style("stroke-width", 0.25);
 
-            d3.select('.details')
-                .style('visibility', "hidden");
+            // d3.select('.details')
+            //     .style('visibility', "hidden");
 		
 			return tooltip2.style("visibility", "hidden");
         })

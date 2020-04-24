@@ -1163,7 +1163,7 @@
           "type": "Polygon",
           "id": "CIV",
           "properties": {
-            "name": "CÃ´te d'Ivoire"
+            "name": "Côte d'Ivoire"
           },
           "arcs": [
             [
@@ -1223,7 +1223,7 @@
           "type": "Polygon",
           "id": "COD",
           "properties": {
-            "name": "Dem. Rep. Congo"
+            "name": "Congo"
           },
           "arcs": [
             [
@@ -1253,7 +1253,7 @@
           "type": "Polygon",
           "id": "COG",
           "properties": {
-            "name": "Dem. Rep. Congo"
+            "name": "Congo"
           },
           "arcs": [
             [
@@ -1398,7 +1398,7 @@
           "type": "Polygon",
           "id": "CZE",
           "properties": {
-            "name": "Czech Rep."
+            "name": "Czechia"
           },
           "arcs": [
             [
@@ -1835,7 +1835,7 @@
           "type": "MultiPolygon",
           "id": "GBR",
           "properties": {
-            "name": "United Kingdom"
+            "name": "UK"
           },
           "arcs": [
             [
@@ -2881,7 +2881,7 @@
           "type": "MultiPolygon",
           "id": "KOR",
           "properties": {
-            "name": "Korea"
+            "name": "S. Korea"
           },
           "arcs": [
             [
@@ -2982,7 +2982,7 @@
           "type": "Polygon",
           "id": "LBY",
           "properties": {
-            "name": "Libya"
+            "name": "Libyan Arab Jamahiriya"
           },
           "arcs": [
             [
@@ -4549,7 +4549,7 @@
           "type": "Polygon",
           "id": "SYR",
           "properties": {
-            "name": "Syria"
+            "name": "Syrian Arab Republic"
           },
           "arcs": [
             [
@@ -4844,7 +4844,7 @@
           "type": "MultiPolygon",
           "id": "USA",
           "properties": {
-            "name": "United States"
+            "name": "USA"
           },
           "arcs": [
             [

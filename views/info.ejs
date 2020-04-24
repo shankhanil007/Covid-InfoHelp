@@ -1,0 +1,58 @@
+
+
+    <% var s2=[]; state.forEach(function(place){   if(s2.includes(place) === false)    s2.push(place); }) %>
+
+<form action="/info" method="POST">
+    <select name="state">
+       <% s2.forEach(function(place){ %>
+            <option value="<%=place%>"><%=place%></option>
+       <% }) %>
+    </select>
+    <select name="choice">
+        <option value="1">Hospitals</option>
+        <option value="2"> HelpLine No.</option>
+    </select>
+
+    <button>Submit</button>
+</form>
+
+
+<% if(choice == 1){ %>
+    <table border="2">
+        <thead>
+            <th>State</th>
+            <th>Name of Hospital</th>
+            <th>City</th>
+            <th>Ownership</th>
+            <th>No. of Beds</th>
+        </thead>
+      <%  data.forEach(function(info){ %>
+            <tr>
+                <td><%= info.state %></td>
+                <td><%= info.name %> </td>
+                <td><%= info.city %></td>
+                <td><%= info.owner %></td>
+                <td><%= info.beds %></td>
+            </tr>
+      <%  }) %>
+    </table>
+<% } %>
+
+
+    <% if(choice == 2){ %>
+
+    <table border="2">
+        <thead>
+            <th>State</th>
+            <th>Ph no</th>
+        </thead>
+        <%  data.forEach(function(info){ %>
+            <tr>
+                <td><%= info.state %></td>
+                <td><%= info.no %> </td>
+                
+            </tr>
+      <%  }) %>
+    </table>
+<% } %>
+

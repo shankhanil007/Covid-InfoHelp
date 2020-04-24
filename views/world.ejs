@@ -1,50 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
-	
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="stylesheet" href="/stylesheets/world.css">
 	
     <style>
         * {
             font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif
-        }
-        /* h1, h2, h3, h4, h5, h6 {
-            color: #444444;
-            font-weight: 100;
-        } */
-        body {
-            background-color: #353538;
-            margin: 0px;
-        }
+		}
+		
         path {
             stroke: white;
             stroke-width: 0.25px;
             fill: #808080;
-        }
-        .details {
-            top: 0px;
-            visibility: hidden;
-            width: 300px;
-            padding: 30px;
-            height: 100%;
-            opacity: 0.4;
-            position: absolute;
-            background-color: aliceblue;
-            font-size: 50px;
-        }
+		}
+		
         .center {
             text-align: center;
         }
 		
-		svg{
-			width: 1300px;
-			height: 600px;
-		}
 		
-	 body { 
+		
+	 	body { 
+            margin: 0px;
             animation: fadeInAnimation ease 1s; 
             animation-iteration-count: 1; 
             animation-fill-mode: forwards; 
@@ -58,53 +37,124 @@
             } 
         } 
 		
-    </style>
+	</style>
+	
 </head>
-
-
+	<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.15.0/css/mdb.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/stylesheets/world.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue.css">
+	<link href="https://fonts.googleapis.com/css?family=Londrina+Outline|Monoton&display=swap" rel="stylesheet">
 <body>
 	
-<h1 class="center">2020 World Covid spread </h1>
 
 
-<div class="row">
-	<div class="col-xl-3 d-flex justify-content-center">
-		<div class="d-flex flex-column justify-content-center"style="background-color: #414345; height: 90%; width: 80%; margin-top: 20px;">
+
+	<nav id="mainNavbar" class="navbar navbar-expand-lg  navbar-dark w3-theme-d4 fixed-top pt-0 mb-5" style="width: 1">
+		<img src="/images/virus.png" style="width: 40px; height: 40px; margin-right: 10px; margin-left: 40px;">
+		<a class="navbar-brand" href="#">Covid Info</a>
+	  
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
+		  <span class="navbar-toggler-icon" ></span>
+		</button>
+	  
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		  <ul class="nav navbar-nav mr-auto">
+			<li class="nav-item">
+			  <a class="nav-link" href="/">Home </a>
+			</li>
+		   
+			<li class="nav-item dropdown">
+			  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Stats
+			  </a>
+			  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+				<a class="dropdown-item" href="/world">World Stats</a>
+				<a class="dropdown-item" href="/india">India Stats</a>
+			</li>
+			
+			<li class="nav-item">
+			  <a class="nav-link" href="/news">News</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/info">Essentials</a>
+			  </li>
+		  </ul>
+		  <ul class="nav navbar-nav navbar-right" style=" margin-right: 70px;">
+			  <li> <a class="nav-link" href="/">Login</a> </li>
+			  <li> <a class="nav-link" href="/">Sign Up</a> </li>
+			</ul>   
+		</div>
+	  </nav>
+	  
+
+
+	  <div class="container" style="padding: 0;">
+	<div class="jumbotron w3-theme-l4" style="margin: 25px 0 50px 0; padding-left: 60px; padding-right: 40px; ">
+		<h1 class="display-4">Covid-19 World Stats</h1>
+		<p class="lead two">Coronavirus or COVID-19 which was first identified in China has now become a pandemic globally.
+			 It is affecting 210 countries and territories around the world and 2 international conveyances. 
+			 The most severely affected countries include the U.S., Italy, and Spain.
+			 The list of countries and territories and their continental regional classification is based on the United Nations Geoscheme. </p>
+		<!-- <hr class="my-4">
+			
+		<p class="lead" style="margin-top: 20px;">Stay indoors and stay healthy</p>
+		<a class="btn btn-success btn-lg" href="/india" role="button">Check India Stats</a> -->
+	</div>	
+	  </div>
+
+
+
+<div class="container" style="border: 1px solid gray; background-color: #2d323b;">
+ <div class="row" >
+	<div class="col-sm-12" style="background-color: #020730">
+		<h3 style="color: white;">Covid-19 World Heat Map</h3>
+	</div>
+	<div class="col-xl-3 col-sm-12 d-flex justify-content-center align-items-center">
+		<div style="background-color: #3f4652; width: 100%; padding: 20px 0 25px 0">
 			<center>
 				<div>
-					<h4 style="color: white; font-family: archia; font-weight: 600; margin-bottom: 4px; margin-top:15px;">Total Cases</h4>
-					<h1 style="color: #ff073a; font-weight: 600; font-family:archia; letter-spacing: 0.1rem; margin-bottom: 20px;"><%= c %></h1>
+					<h4 style="color: white; font-family: archia; font-weight: 600;">Total Cases</h4>
+					<h1 style="color: #ff073a; font-weight: 700; font-family:archia; letter-spacing: 0.2rem; "><%= c %></h1>
 				</div>
 				<div>
-					<h4 style="color: white; font-family: archia; font-weight: 600; margin-bottom: 4px;">Active</h4>
-					<h1 style="color: rgba(0,123,255,.76); font-weight: 600; font-family:archia; letter-spacing: 0.1rem; margin-bottom: 20px;"><%=a%></h1>		
+					<h4 style="color: white; font-family: archia; font-weight: 600; ">Active</h4>
+					<h1 style="color: #4475fc; font-weight: 700; font-family:archia; letter-spacing: 0.2rem;"><%=a%></h1>		
 				</div>
 				<div>
-					<h4 style="color: white; font-family: archia; font-weight: 600; margin-bottom: 4px;">Recovered</h4>
-					<h1 style="color: #28a745; font-weight: 600; font-family:archia; letter-spacing: 0.1rem; margin-bottom: 20px;"><%=r%></h1>
+					<h4 style="color: white; font-family: archia; font-weight: 600; ">Recovered</h4>
+					<h1 style="color: #28a745; font-weight: 700; font-family:archia; letter-spacing: 0.2rem;"><%=r%></h1>
 				</div>
 				<div>
-					<h4 style="color: white; font-family: archia; font-weight: 600; margin-bottom: 4px;">Deaths</h4>
-					<h1 style="color:#6c757d; font-weight: 600; font-family:archia; letter-spacing: 0.1rem; margin-bottom: 20px;"><%=d%></h1>
+					<h4 style="color: white; font-family: archia; font-weight: 600; ">Deaths</h4>
+					<h1 style="color:#6c757d; font-weight: 700; font-family:archia; letter-spacing: 0.2rem; "><%=d%></h1>
 				</div>
-			</center>	
-		</div>	
+				
+				
+			</center>			
+		</div>		
 	</div>
 	
-	<div class="col-xl-9">
-		<div class="map d-flex justify-content-center">
+	<div class="col-xl-9 col-sm-12" >
+		<div class="map ">
 	</div>
-</div>
-</div>
+</div> 
+</div>	
+</div>	
 	
-	
-	
-	
-<div class="scrollable" style="width: 1100px;margin: 50px auto;">	
+<div class="container" style="padding: 0; margin-bottom: 150px;">	
+<div class="scrollable" style=" margin: 50px auto;">	
 	<table class="table table-striped table-dark" border="1" cellspacing="0" cellpadding="3" >
 		<thead>
 			<tr style="text-align: center;">
-			<th>S. No.</th>
+			<th><strong>S.No.</strong></th>
 			<th>Country</th>
 			<th style="color: #ff0000;">Confirmed </th> 
 			<th style="color: #4ed1e6;">Active</th>
@@ -115,13 +165,12 @@
 		
 		<tbody>
 			<% var i=1; %>
-			<% arr.splice(5, 0, arr[210]); %>               <!-- TO change the position of an element in an array -->
-			<% arr.pop() %>
+			
 			<% arr.forEach(function(info){ %>
 			<tr>
 				<td> <%= i %></td>
 				<td> <%= info.country%> </td>
-				<td style="color: #f54747"> <%= info.cases%>  </td>
+				<td style="color: #fc3030"> <%= info.cases%>  </td>
 				<td style="color: #4ed1e6;"> <%= info.active%>  </td>
 				<td style="color: #11d414;"> <%= info.recovered%> </td>
 				<td style="color: #e9f0e9;"> <%= info.deaths%> </td>
@@ -131,20 +180,39 @@
 		</tbody>
 	</table>		
 </div>
+</div>	
 	
 	
+	
+	
+<div class="row bg-dark d-flex justify-content-center align-items-center" style=" color: white; height:150px;">
+	<div class="col-xl-4">
+		<center> <p class="Covid-info" style="margin-bottom: 0;font-weight: 500;"> Covid-Info   </p></center>	
+	</div>
+	<div class="col-xl-4">
+		<center> <p> @ 2020 All rights reserved </p></center>
+	</div>
+	<div class="col-xl-4">
+		<center> <p>Developed by :  HyperText Coders </p></center>
+	</div>
+</div>
 	
 	
 	
 
+
+
 	
-	
-	
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>	
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.js"></script>
 <script type="text/javascript" src="/javascript/world.js"></script>
-	
-	
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.15.0/js/mdb.min.js"></script>	
 </body>
 </html>
