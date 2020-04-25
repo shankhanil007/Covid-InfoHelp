@@ -1,17 +1,74 @@
-var express=require("express");
-var bodyParser  =   require("body-parser");
-const request = require('request');
-const puppeteer = require('puppeteer');
-var app=express();
-var twilio = require('twilio');
+// var express=require("express");
+// var bodyParser  =   require("body-parser");
+// const request = require('request');
+// const puppeteer = require('puppeteer');
+// var app=express();
+// var twilio = require('twilio');
+// var json = require("./public/json/helpline.json");
+// var resources = require("./public/json/resources.json");
+
+
+
+var express  					=  	require("express");
+var bodyParser  				=   require("body-parser");
+var request					    = 	require('request');
+const puppeteer 				= require('puppeteer');
+var mongoose         			=   require("mongoose");
+var app 						= 	express();
+var flash           			=   require("connect-flash");
+var Seller      				=   require("./models/seller");
+var passport         			=   require("passport");
+var User             			=   require("./models/user");
+var NewOrder          			=   require("./models/newOrder");
+var payPending         			=   require("./models/payPending");
+var completed         			=   require("./models/completed");
+var Bill     					=   require("./models/bill");
+var LocalStrategy   			=   require("passport-local");
+var passportLocalMongoose 		= 	require("passport-local-mongoose");
+var methodOverride				= 	require("method-override");
+var async 						= require("async");
 var json = require("./public/json/helpline.json");
 var resources = require("./public/json/resources.json");
 
 
 
+mongoose.connect('mongodb://localhost:27017/Covid_info',{useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
+
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
 
+app.use(require("express-session")({
+    secret: "AMOC Groceries Project",
+    resave: false,
+    saveUninitialized: false
+}));
+
+app.use(flash());
+app.use(methodOverride("_method"));
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+app.use(function(req, res, next){
+	res.locals.currentUser = req.user;
+	res.locals.error = req.flash("error");
+	res.locals.success = req.flash("success");
+	next();
+});
+
+
+
+
+
+app.get("/helpline",function(req, res){
+	res.render("helpline.ejs");
+})
+
+app.get("/riskChecker",function(req, res){
+	res.render("riskChecker.ejs");
+})
 
 
 
@@ -297,6 +354,647 @@ app.get("/info", function(req, res){
 
 
 });
+
+
+
+
+
+
+// ---------------------------------------------------------------------------------------------------
+//---------------------------------------------------
+
+
+app.get("/login", function(req,res){
+    res.render("login.ejs");
+});
+app.get("/signup", function(req,res){
+    res.render("signup.ejs");
+});
+
+app.post("/signup", function(req, res){
+    User.register(new User({username: req.body.username,name: req.body.name, phone: req.body.phone, address: req.body.address}), req.body.password, function(err, user){
+        if(err){				
+           console.log(err);
+        }
+        passport.authenticate("local")(req, res, function(){
+        //    req.flash("success","Welcome to YelpCamp "+ user.username);
+			res.redirect("/groceries");
+        });
+    });
+});
+
+app.post("/login", passport.authenticate("local", {
+    successRedirect: "/groceries",
+    failureRedirect: "/login"
+}) ,function(req, res){
+});
+app.get("/logout", function(req, res){
+    req.logout();
+	// req.flash("success","Logged you out!");
+    res.redirect("/groceries");
+});
+
+
+
+app.get("/groceries",function(req,res){
+    res.render("Grocery_home.ejs",{currentUser: req.user});
+})
+
+
+app.get("/:id/new/seller",isLoggedIn, function(req,res){
+	Seller.findOne({seller_id: req.params.id}).populate("newOrder").exec(function(err, details){	    	        
+		if(err)
+			console.log(err);
+		else
+			{
+				if(details!= undefined)
+				{
+					console.log("Sorry you cannot create another shop");
+					req.flash("error","Sorry you cannot create another shop!");
+					res.redirect("/groceries");
+				}
+					
+				else
+				res.render("newseller.ejs");
+			}
+		});
+    
+})
+
+app.post("/new/seller", function(req,res){
+    Seller.create(req.body.seller, function(err, details){
+		if(err)
+			console.log("ERROR");
+		else
+			{
+				details.seller_id = req.user._id;
+				details.save();
+				console.log("Successfully added");
+				req.flash("success","Successfully added your Shop! ");
+				res.redirect("/"+details._id+"/seller/newOrders");
+			}
+	});
+})
+
+
+app.get("/:id/seller/dashboard", function(req,res){
+
+
+	Seller.findOne({seller_id: req.params.id}).populate("newOrder").exec(function(err, details){	    	        
+		if(err)
+			console.log(err);
+		else
+			{
+				if(details!= undefined)
+				{
+					console.log(details.seller_id);
+					console.log(req.params.id);
+					res.render("newOrders.ejs", {details: details});
+				}
+				else{
+					req.flash("error","Oops! You haven't set up a shop!");
+					res.redirect("/groceries");
+				}
+				
+			}
+
+		});
+	});
+
+
+
+
+
+
+
+
+app.get("/:id/seller/newOrders", function(req,res){
+
+
+		Seller.findById(req.params.id).populate("newOrder").exec(function(err, details){	    	        
+			if(err)
+				console.log(err);
+			else
+				{
+					// var arr=[];
+					 
+					// 		function doA(){
+					// 			return new Promise(resolve => {
+					// 				details.newOrder.forEach(function(id){
+					// 					NewOrder.findById(id, function(err, info){
+					// 						// console.log(info);
+					// 						arr.push(info);
+					// 						// console.log("hi");
+					// 					});
+					// 				});	
+					// 				setTimeout(() => {
+					// 					resolve(arr);
+					// 				  }, 3000);
+					// 				});
+	
+	
+									
+					// 		// console.log("hello");
+					// 	}
+	
+					// async function main(){
+					// 	const result = await doA();
+					// 	// console.log(result);
+					// 	var regex=null;
+						res.render("newOrders.ejs", {details: details});
+					
+			//	}
+					// main();
+					
+						
+						// a.then(
+						// 	console.log(arr);
+						// 	// res.render("newOrders.ejs", {details: details});
+						// );
+						
+						// a.then( a=> {
+						// 	console.log(arr);
+						// 	res.render("newOrders.ejs", {details: details});
+						// });
+					
+				}
+		});	
+})
+
+
+
+
+
+
+
+
+
+
+app.get("/:id/seller/payPendings", function(req,res){
+	
+	Seller.findById(req.params.id).populate("payPending").exec(function(err, details){	    	        
+		if(err)
+			console.log(err);
+		else
+			{
+				// var arr=[];
+				 
+				// 		function doA(){
+				// 			return new Promise(resolve => {
+				// 				details.payPending.forEach(function(id){
+				// 					payPending.findById(id, function(err, info){
+				// 						// console.log(info);
+				// 						arr.push(info);
+				// 						// console.log("hi");
+				// 					});
+				// 				});	
+				// 				setTimeout(() => {
+				// 					resolve(arr);
+				// 				  }, 3000);
+				// 				});
+
+
+								
+				// 		// console.log("hello");
+				// 	}
+
+				// async function main(){
+				// 	const result = await doA();
+				// 	// console.log(result);
+					res.render("payPendings.ejs", {details: details});
+				// }
+				
+				// main();
+				
+					
+				
+			}
+	});
+})
+
+
+
+app.get("/:id/seller/completed", function(req,res){
+	
+	Seller.findById(req.params.id).populate("completed").exec(function(err, details){	    	        
+		if(err)
+			console.log(err);
+		else
+			{
+				// var arr=[];
+				 
+				// 		function doA(){
+				// 			return new Promise(resolve => {
+				// 				details.completed.forEach(function(id){
+				// 					completed.findById(id, function(err, info){
+				// 						// console.log(info);
+				// 						arr.push(info);
+				// 						// console.log("hi");
+				// 					});
+				// 				});	
+				// 				setTimeout(() => {
+				// 					resolve(arr);
+				// 				  }, 3000);
+				// 				});
+
+
+								
+				// 		// console.log("hello");
+				// 	}
+
+				// async function main(){
+				// 	const result = await doA();
+				// 	// console.log(result);
+					res.render("completed.ejs", {details: details});
+				// }
+				
+				// main();
+				
+					
+				
+			}
+	});
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+app.get("/order",isLoggedIn, function(req,res){
+	Seller.find({}, function(err, details){
+		if(err){
+			console.log(err);
+		} else {
+			
+		   res.render("order.ejs",{details: details});
+		}
+	 });	
+});
+
+app.get("/:id/seller/order",function(req,res){
+	Seller.findById(req.params.id, function(err, details){	        
+		if(err)
+			console.log(err);
+		else
+			{
+				res.render("placeorder.ejs", {details: details, user: req.user});
+			}
+	});
+})
+
+
+app.put("/:id/seller/newOrders", function(req,res){
+		Seller.findById(req.params.id,function(err, seller){	        
+				if(err)
+						console.log(err);
+					else
+						{
+							
+							NewOrder.create(req.body.order, function(err, details){
+								if(err){
+									console.log(err);
+								} 
+								else {
+										seller.newOrder.push(details);
+										seller.save();
+										console.log("Successfully placed order");
+										req.flash("success","Successfully placed order. You will recieve notification regarding delivery details on your phone no. ");
+										res.redirect("/"+req.params.id+"/seller/order");
+								}
+					});
+				}
+			});
+});
+
+
+
+app.put("/:id/seller/:orderid/bill", function(req,res){
+	function doA(){
+		return new Promise(resolve => {
+			var arr={};
+			Seller.findById(req.params.id,function(err, seller){	        
+				if(err)
+						console.log(err);
+					else
+						{
+							NewOrder.findById(req.params.orderid, function(err,details){
+								if(err)
+									console.log(err);
+								else
+								{
+										 arr={
+										shop: seller.shop,
+										shopphone: seller.phone,
+										shopaddress: seller.address,
+										id: details._id,
+										buyer: details.buyer,
+										phone:	details.phone,
+										address: details.address,
+										item: details.item,
+										qty: details.qty,
+										created: details.created,
+								
+									}
+								
+							Bill.create(arr, function(err, info){
+								if(err){
+									console.log(err);
+								} 
+								else {
+										seller.payPending.push(info);
+										seller.save();
+										
+								}
+							});
+						}
+					});
+					}
+					});
+
+			setTimeout(() => {
+				resolve(arr);
+			  }, 3000);
+			});
+
+
+			
+	// console.log("hello");
+}
+
+async function main(){
+const result = await doA();
+// console.log(result);
+	res.render("bill.ejs",{Details: result});
+	
+}
+
+main();
+
+
+});
+
+
+
+
+app.put("/:id/seller/:orderid/paymentPending", function(req,res){
+					function doA(){
+						return new Promise(resolve => {
+							Seller.findById(req.params.id,function(err, seller){	        
+								if(err)
+										console.log(err);
+									else
+										{
+											NewOrder.findById(req.params.orderid, function(err,details){
+												if(err)
+													console.log(err);
+												else
+												{
+													console.log(details);
+													var arr={
+														buyer: details.buyer,
+														phone:	details.phone,
+														address: details.address,
+														item: details.item,
+														qty: details.qty,
+														desc: details.desc,
+														created: details.created,
+												
+													}
+													console.log(arr);
+											payPending.create(arr, function(err, info){
+												if(err){
+													console.log(err);
+												} 
+												else {
+														seller.payPending.push(info);
+														seller.save();
+														console.log("Payment pending");
+					
+												}
+											});
+										}
+									});
+									}
+									});
+		
+							setTimeout(() => {
+								resolve("hello");
+							  }, 3000);
+							});
+
+
+							
+					// console.log("hello");
+				}
+
+			async function main(){
+				const result = await doA();
+				// console.log(result);
+				
+
+				NewOrder.findByIdAndRemove(req.params.orderid, function(err){
+					if(err)
+						console.log(err);
+					else
+					{
+						console.log("Deleted Successfully");
+						res.redirect("/"+req.params.id+"/seller/newOrders");
+					}
+				});
+			}
+			
+			main();
+
+
+});
+
+app.put("/:id/seller/:orderid/newOrders/completed", function(req,res){
+	function doA(){
+		return new Promise(resolve => {
+			Seller.findById(req.params.id,function(err, seller){	        
+				if(err)
+						console.log(err);
+					else
+						{
+							NewOrder.findById(req.params.orderid, function(err,details){
+								if(err)
+									console.log(err);
+								else
+								{
+									console.log(details);
+									var arr={
+										buyer: details.buyer,
+										phone:	details.phone,
+										address: details.address,
+										item: details.item,
+										qty: details.qty,
+										desc: details.desc,
+										created: details.created,
+								
+									}
+									console.log(arr);
+							completed.create(arr, function(err, info){
+								if(err){
+									console.log(err);
+								} 
+								else {
+										seller.completed.push(info);
+										seller.save();
+										console.log("completed order");
+	
+								}
+							});
+						}
+					});
+					}
+					});
+
+			setTimeout(() => {
+				resolve("hello");
+			  }, 3000);
+			});
+
+
+			
+	// console.log("hello");
+}
+
+async function main(){
+const result = await doA();
+// console.log(result);
+
+
+NewOrder.findByIdAndRemove(req.params.orderid, function(err){
+	if(err)
+		console.log(err);
+	else
+	{
+		console.log("Deleted Successfully");
+		res.redirect("/"+req.params.id+"/seller/newOrders");
+	}
+});
+}
+
+main();
+
+
+});
+
+
+
+app.put("/:id/seller/:orderid/payPendings/completed", function(req,res){
+	function doA(){
+		return new Promise(resolve => {
+			Seller.findById(req.params.id,function(err, seller){	        
+				if(err)
+						console.log(err);
+					else
+						{
+							payPending.findById(req.params.orderid, function(err,details){
+								if(err)
+									console.log(err);
+								else
+								{
+									console.log(details);
+									var arr={
+										buyer: details.buyer,
+										phone:	details.phone,
+										address: details.address,
+										item: details.item,
+										qty: details.qty,
+										desc: details.desc,
+										created: details.created,
+								
+									}
+									console.log(arr);
+							completed.create(arr, function(err, info){
+								if(err){
+									console.log(err);
+								} 
+								else {
+										seller.completed.push(info);
+										seller.save();
+										console.log("completed order");
+	
+								}
+							});
+						}
+					});
+					}
+					});
+
+			setTimeout(() => {
+				resolve("hello");
+			  }, 3000);
+			});
+
+
+			
+	// console.log("hello");
+}
+
+async function main(){
+const result = await doA();
+// console.log(result);
+
+
+payPending.findByIdAndRemove(req.params.orderid, function(err){
+	if(err)
+		console.log(err);
+	else
+	{
+		console.log("Deleted Successfully");
+		res.redirect("/"+req.params.id+"/seller/payPendings");
+	}
+});
+}
+
+main();
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
+
+
+function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    res.redirect("/login");
+}
+
+
+
+
+
 
 
 

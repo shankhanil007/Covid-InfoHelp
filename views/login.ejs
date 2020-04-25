@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.15.0/css/mdb.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lora|PT+Sans|PT+Serif|Roboto+Condensed&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Londrina+Outline|Monoton&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue.css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+
+<style>
+    .navbar-dark .navbar-nav .nav-link{
+        color: white;
+    }
+
+    a.waves-effect, a.waves-light{
+        display: inline;
+    }
+
+    body{
+        background-color: white;
+    }
+
+</style>
+
+
+<body>
+
+
+    <nav id="mainNavbar" class="navbar navbar-expand-lg  navbar-dark w3-theme-d4 fixed-top pt-0 mb-5" style="width: 1">
+        <a class="navbar-brand" style="padding-left: 20px;"  href="/groceries">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
+          <span class="navbar-toggler-icon" ></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="nav navbar-nav mr-auto">
+            <% if(currentUser){ %>
+              <li> <a class="nav-link" href="/<%=currentUser._id%>/new/seller">Set Up a Shop</a> </li>
+            <li> <a class="nav-link" href="/<%=currentUser._id%>/seller/dashboard">Go to your Shop</a> </li>
+            <% } %>
+          </ul>
+          <ul class="nav navbar-nav navbar-right" style=" margin-right: 70px;">
+            <% if(!currentUser){ %>
+                <li class="<%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>"><a class="nav-link" href="/login">Login</a></li>
+                <li class="<%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>"><a class="nav-link" href="/signup">Sign Up</a></li>
+            <% } else { %>
+                <li><a class="nav-link" href="#">Signed In As <%= currentUser.username %></a></li>
+                <li><a class="nav-link" href="/logout">Logout</a></li>
+            <% } %>
+            </ul>   
+        </div>
+      </nav>
+
+
+
+
+
+
+
+
+
+<div class="container" style="margin-top: 100px;">
+
+    <h1 style="text-align: center">Login</h1>
+    <div style="width: 30%; margin: 25px auto;">
+        <form action="/login" method="post">
+            <div class="form-group">
+                <input class="form-control" type="text" name="username" placeholder="username">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" name="password" placeholder="password">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary btn-block">Login</button>
+            </div>
+        </form>
+        <a href="/">Go Back</a>
+    </div>
+
+</div>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.15.0/js/mdb.min.js"></script>
+
+
+    </body>
+    </html>
