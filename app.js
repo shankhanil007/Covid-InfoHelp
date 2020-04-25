@@ -31,7 +31,6 @@ var json = require("./public/json/helpline.json");
 var resources = require("./public/json/resources.json");
 
 
-
 mongoose.connect('mongodb://localhost:27017/Covid_info',{useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 
 app.use(bodyParser.urlencoded({extended:true}));

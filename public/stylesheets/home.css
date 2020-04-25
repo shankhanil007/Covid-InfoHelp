@@ -105,6 +105,12 @@
       .carousel-control-prev, .carousel-control-next{
         margin-top: -30px;
       }
+
+      .carousel .carousel-control-prev-icon, .carousel .carousel-control-next-icon {
+        height:  50px;
+        width: 100px;
+      }
+
       /* .span.sr-only{
         background-image: none;
         color: #f4511e;
