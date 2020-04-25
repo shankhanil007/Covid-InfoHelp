@@ -80,13 +80,13 @@
 
 
 	<div class="container" style="margin-top: 100px;">
-		<h1 style="text-align: center; margin-bottom: 40px;" >COVID RISK CHECKER</h1>
-		<form onsubmit="check()">
+		<h1 style="text-align: center; margin-bottom: 40px;font-family: 'Times New Roman', Times, serif;position: relative;left: -210px;" >COVID RISK CHECKER</h1>
+		<form onsubmit="validate()" name="form1">
 			<div class="row">
 				<div class="col-md-6 col-sm-12">
 					<div class="form-group">
 					<label for="age"><b>How old are you?(Age)</b></label>
-					<input type="number" name="age" class="form-control">
+					<input type="number" name="age" class="form-control" required>
 					</div>
 				</div>
 				<div class="col-md-6 col-sm-12">
@@ -94,15 +94,15 @@
 						<div class="form-group">
 							<label for="gender"><b>Gender :</b></label>
   							<div class="custom-control custom-radio ">
-  								<input type="radio" id="male" name="customRadioInline1" class="custom-control-input">
+  								<input type="radio" id="male" name="customRadioInline1" class="custom-control-input" required>
   								<label class="custom-control-label" for="male"> Male </label>
   							</div>
   							<div class="custom-control custom-radio ">
-  								<input type="radio" id="female" name="customRadioInline1" class="custom-control-input">
+  								<input type="radio" id="female" name="customRadioInline1" class="custom-control-input" required>
   								<label class="custom-control-label" for="female"> Female </label>
 							</div>
 							<div class="custom-control custom-radio ">
-  								<input type="radio" id="other" name="customRadioInline1" class="custom-control-input">
+  								<input type="radio" id="other" name="customRadioInline1" class="custom-control-input" required>
   								<label class="custom-control-label" for="other">Other</label>
 							</div>
 						</div>
@@ -113,15 +113,15 @@
 					  	<div class="form-group">
 							<label for="temparature"><b>Your current body temparature in &deg;F(Normal body Temperature is 98.6&deg;F) :</b></label>
 							<div class="custom-control custom-radio ">
-  								<input type="radio" id="normal-temp" name="customRadioInline2" class="custom-control-input">
+  								<input type="radio" id="normal-temp" name="customRadioInline2" class="custom-control-input" required>
   								<label class="custom-control-label" for="normal-temp"> Normal(96&deg;F-98.6&deg;F)</label>
 							</div>
 							<div class="custom-control custom-radio ">
-  								<input type="radio" id="fever-temp" name="customRadioInline2" class="custom-control-input">
+  								<input type="radio" id="fever-temp" name="customRadioInline2" class="custom-control-input" required>
   								<label class="custom-control-label" for="fever-temp">Fever(98.6&deg;F-102&deg;F)</label>
 							</div>
 							<div class="custom-control custom-radio ">
-  								<input type="radio" id="highfever-temp" name="customRadioInline2" class="custom-control-input">
+  								<input type="radio" id="highfever-temp" name="customRadioInline2" class="custom-control-input" required>
   								<label class="custom-control-label" for="highfever-temp">High Fever(>102&deg;F) </label>
 							</div>
 						</div>
@@ -131,25 +131,25 @@
 					<label for="symptoms"><b>Are you experiencing any if these symptoms?(check all that are applicable):</b></label>
 				<div class="row">
 					<div class="col-md-12">
-						<input type="checkbox" class="form-check-input" id="cough">
+						<input type="checkbox" class="form-check-input" id="cough" >
 	    				<label class="form-check-label" for="cough">Cough</label>
 	    			</div>
 	    		</div>
 	    		<div class="row">
 					<div class="col-md-12">
-	    				<input type="checkbox" class="form-check-input" id="fever">
+	    				<input type="checkbox" class="form-check-input" id="fever" >
 	    				<label class="form-check-label" for="fever">Fever</label>
 	    			</div>
 	    		</div>
 	    		<div class="row">
 					<div class="col-md-12">
-	    				<input type="checkbox" class="form-check-input" id="breathing">
+	    				<input type="checkbox" class="form-check-input" id="breathing" >
 	    				<label class="form-check-label" for="breathing">Difficulty in Breathing</label>
 	    			</div>
 	    		</div>
 	    		<div class="row">
 					<div class="col-md-12">
-	    				<input type="checkbox" class="form-check-input" id="none1">
+	    				<input type="checkbox" class="form-check-input" id="none1" >
 	    				<label class="form-check-label" for="none1">None of the Above</label>
 	    			</div>
 				</div>
@@ -225,6 +225,15 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 	<script type="text/javascript">
+
+		function validate()
+		{
+			var x=document.form1.age.value;
+			if(x<1)
+			alert("please enter valid age");
+			else
+			check();
+		}
 
 		function check() {
 
