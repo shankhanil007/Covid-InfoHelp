@@ -23,7 +23,7 @@
 </style>
 
 
-<body style="background: grey;color: white">
+<body style="background-color: #eef0dd">
 
 
 	<nav id="mainNavbar" class="navbar navbar-expand-lg  navbar-dark w3-theme-d4 fixed-top pt-0 mb-5" style="width: 1">
@@ -81,7 +81,7 @@
 
 	<div class="container" style="margin-top: 100px;">
 		<h1 style="text-align: center; margin-bottom: 40px;font-family: 'Times New Roman', Times, serif;position: relative;left: -210px;" >COVID RISK CHECKER</h1>
-		<form onsubmit="validate()" name="form1">
+		<form onsubmit="return false" name="form1">
 			<div class="row">
 				<div class="col-md-6 col-sm-12">
 					<div class="form-group">
@@ -194,8 +194,11 @@
 				</div>
 			</div>
 				<div class="row">
-					<div class="col-md-12">
-						<button type="submit" class="btn btn-success" id="sb">Submit</button>
+					<div class="col-md-3">
+						<button type="submit" class="btn btn-success" id="sb" onclick="validate()">Submit</button>
+					</div>
+					<div class="col-md-9" >
+						<h4 id="res">Risk : - &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Covid Test : -</h4>
 					</div>
 				</div>
 			</form>
@@ -253,16 +256,16 @@
 
 
 			if(((a||b)&&(c&&f))||((a||b)&&(c&&g))||((a||b)&&(c&&h))||((a||b)&&(c&&i))||((a||b)&&(d&&f))||((a||b)&&(d&&g))||((a||b)&&(d&&h))||((a||b)&&(d&&i))||((a||b)&&(e&&f))||((a||b)&&(e&&g))||((a||b)&&(e&&h))||((a||b)&&(e&&i))){
-				alert("Risk : High\nCorona Test : Highly Recommended");
+				document.getElementById("res").innerHTML="<b>Risk : High &nbsp; &nbsp; Corona Test : Highly Recommended</b>";
 			}
 			else if(((a||b)||(c&&f))||((a||b)||(c&&g))||((a||b)||(c&&h))||((a||b)||(c&&i))||((a||b)||(d&&f))||((a||b)||(d&&g))||((a||b)||(d&&h))||((a||b)||(d&&i))||((a||b)||(e&&f))||((a||b)||(e&&g))||((a||b)||(e&&h))||((a||b)||(e&&i))||((a||b)&&(c||f))||((a||b)&&(c||g))||((a||b)&&(c||h))||((a||b)&&(c||i))||((a||b)&&(d||f))||((a||b)&&(d||g))||((a||b)&&(d||h))||((a||b)&&(d||i))||((a||b)&&(e||f))||((a||b)&&(e||g))||((a||b)&&(e||h))||((a||b)&&(e||i))){
-				alert("Risk : Medium\nCorona Test : Recommended");
+				document.getElementById("res").innerHTML="<b>Risk : Medium &nbsp; &nbsp; Corona Test : Recommended</b>";
 			}
 			else{
-				alert("Risk : Low\nCorona Test : Not Recommended")
+				document.getElementById("res").innerHTML="<b>Risk : Low &nbsp; &nbsp; Corona Test : Not Recommended</b>";
 			}
 		
 		}
 	</script>
 </body>
-</htm||
+</html>
