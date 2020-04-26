@@ -76,7 +76,7 @@
 
 
 	  <div class="container" style="padding: 0;">
-		<div class="jumbotron " style="margin: 25px 0 50px 0 ; padding-left: 60px; padding-right: 40px; background-image: url(https://backgrounddownload.com/wp-content/uploads/2018/09/indian-food-menu-background-7.jpg);"><br>
+		<div class="jumbotron " style="margin: 25px 0 50px 0 ; padding-left: 60px; padding-right: 40px; background-image: linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.1)),  url(https://backgrounddownload.com/wp-content/uploads/2018/09/indian-food-menu-background-7.jpg);"><br>
 			<center class="display-4" style="font-size: 40px; font-weight: bold; color: white; align-content:center;">INDIA's CORONAVIRUS TRENDS</center><br>
 			<p class="lead two" style="color: white; font-weight:bold; font-size: 20px">The first case of the 2019–20 coronavirus pandemic in India was reported on 30 January 2020, originating from China.The outbreak has been declared an epidemic in more than a dozen states and union territories, where provisions of the Epidemic Diseases Act, 1897 have been invoked, and educational institutions and many commercial establishments have been shut down.
 				On 22 March 2020, India observed a 14-hour voluntary public curfew at the instance of the prime minister Narendra Modi.Further, on 24 March, the prime minister ordered a nationwide lockdown for 21 days, affecting the entire 1.3 billion population of India. On 14 April, the prime minister extended the ongoing nationwide lockdown till 3 May.</p>
@@ -261,11 +261,18 @@ function districtFunction(state,pos) {
 							var x = document.createElement("TABLE");
 								x.setAttribute("id", "myTable");
 								$(x).insertAfter(table);
+
+								var row = x.insertRow();
+								var cell2 = row.insertCell(0).innerHTML="District";
+								var cell8 = row.insertCell(1).innerHTML="Confirmed";
+								var cell4 = row.insertCell(2).innerHTML="Active";
+								var cell5 = row.insertCell(3).innerHTML="Recovered";
+								var cell6 = row.insertCell(4).innerHTML="Deaths";
+
+								
+								
+
 								info.districtData.forEach(function(details){
-
-								
-								
-
 
 								// var y = document.createElement("TR");
 								// y.setAttribute("id", "myTr");
