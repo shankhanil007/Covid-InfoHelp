@@ -414,7 +414,7 @@ app.get("/:id/new/seller",isLoggedIn, function(req,res){
 				}
 					
 				else
-				res.render("newseller.ejs");
+				res.render("newseller.ejs",{user: req.user});
 			}
 		});
     

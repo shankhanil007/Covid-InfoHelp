@@ -4,15 +4,19 @@
 }
 
 #mainNavbar .nav-link:hover{
-	color: #001ee0;
+	color: #32D328;
+	padding-top: 12px;
 }
 
 .navbar .navbar-brand{
 	color: white;
+	font-size: 25px;
+	padding-top: 12px;
 }
 
 .navbar .nav-link{
-	color: white;
+	padding-top: 15px;
+        	color : white;;
 }
 
 @media screen and (max-width: 480px) {
@@ -37,4 +41,5 @@
   body{
 	  margin: 0;
 	  padding: 0;
+	  background-color: #eef0dd; ;
   }

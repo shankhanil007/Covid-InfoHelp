@@ -27,6 +27,56 @@
     a.waves-effect, a.waves-light{
         display: inline;
     }
+
+    .jumbotron.grocery{
+        color: white;
+    }
+
+    .lead {
+    font-size: 1.45rem;
+    font-weight: 0;
+    font-weight: 500;
+}
+.container-fluid {
+padding: 60px 50px;
+}
+
+
+
+.slideanim {visibility:hidden;}
+.slide {
+animation-name: slide;
+-webkit-animation-name: slide;
+animation-duration: 1s;
+-webkit-animation-duration: 1s;
+visibility: visible;
+}
+@keyframes slide {
+0% {
+opacity: 0;
+transform: translateY(70%);
+} 
+100% {
+opacity: 1;
+transform: translateY(0%);
+}
+}
+@-webkit-keyframes slide {
+0% {
+opacity: 0;
+-webkit-transform: translateY(70%);
+} 
+100% {
+opacity: 1;
+-webkit-transform: translateY(0%);
+}
+}
+
+
+
+
+
+
 </style>
 
 
@@ -61,7 +111,9 @@
 
 
 
-      <div class="jumbotron w3-theme-l4" style="margin: 0; padding-left: 60px; padding-right: 40px; ">
+      <div class="jumbotron" style="margin: 0; color: white; padding-left: 60px; padding-right: 40px; background-image: linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.1)),  url('/images/grocery2.jpg');background-repeat: no-repeat;
+      background-size: cover; 
+      background-position: center; ">
         
       <div class="container">
 		<% if(error && error.length>0){ %>
@@ -78,35 +130,107 @@
     </div>
     
 
-        <h1 class="display-4">Welcome to our online Grocery Store</h1>
-        <p class="lead two">Did you ever imagine that the freshest of fruits and vegetables, top quality pulses and food grains, dairy products and hundreds of branded items could be handpicked and delivered to your home, all at the click of a button? India’s first comprehensive online megastore, bigbasket.com, brings a whopping 20000+ products with more than 1000 brands, to over 4 million happy customers. From household cleaning products to beauty and makeup, bigbasket has everything you need for your daily needs. bigbasket.com is convenience personified We’ve taken away all the stress associated with shopping for daily essentials, and you can now order all your household products and even buy groceries online without travelling long distances or standing in serpentine queues. </p>
+        <h1 class="display-4" style="font-weight: 600;">Welcome to our online Grocery Store</h1>
+        <p class="lead two" style="font-family: 'Roboto Condensed', sans-serif;">Did you ever imagine that the freshest of fruits and vegetables, top quality pulses and food grains, dairy products and hundreds of branded items could be handpicked and delivered to your home, all at the click of a button? India’s first comprehensive online megastore, bigbasket.com, brings a whopping 20000+ products with more than 1000 brands, to over 4 million happy customers. From household cleaning products to beauty and makeup, bigbasket has everything you need for your daily needs. bigbasket.com is convenience personified We’ve taken away all the stress associated with shopping for daily essentials, and you can now order all your household products and even buy groceries online without travelling long distances or standing in serpentine queues. </p>
         <hr class="my-4">
         <p class="lead" style="margin-top: 20px;">Stay indoors and stay healthy</p>
         <a class="btn btn-success btn-lg" href="/order">Place Order</a>
     </div>	
     
       
-      <!-- <div class=row>
-        <div class="col-sm-12" style="padding-left: 0px; padding-right: 0px; margin: 0;">
-            <div class="jumbotron grocery" style="background-image: url(https://michelleismoneyhungry.com/wp-content/uploads/2014/11/store-1-vintage-2.jpg); color: white;   margin-top: 50px; padding-top: 30px;">
-                <div style="padding-left: 15px; padding-right: 15px;" >
-                <h1 class="display-4">
-                    
-                    Covid-19</h1>
-                <p class="lead one" style="font-size: 21px;">Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus.Most people infected with the COVID-19 virus will experience mild to moderate respiratory illness and recover without requiring special treatment.  Older people, and those with underlying medical problems like cardiovascular disease, diabetes, chronic respiratory disease, and cancer are more likely to develop serious illness.</p>
-                <hr class="my-4">
-                <p class="bottom" style=" letter-spacing: 0.09rem;">The COVID-19 virus spreads primarily through droplets of saliva or discharge from the nose when an infected person coughs or sneezes, so it’s important that you also practice respiratory etiquette (for example, by coughing into a flexed elbow).
-                    At this time, there are no specific vaccines or treatments for COVID-19. However, there are many ongoing clinical trials evaluating potential treatments. WHO will continue to provide updated information as soon as clinical findings become available.</p>
-                <p class="lead">
-                    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-                </p>
-                </div>
+    <div id="portfolio" class="container-fluid text-center" style="background-color: #ff810a">
+        <h2 class="awareness"> <strong>Our Features</strong> </h2><br>
+        <div class="row text-center ">
+          <div class="col-sm-4" style="margin-bottom: 20px;" >
+            <div class="thumbnail">
+              <img class="img-fluid" src="/images/signup.PNG" style="height: 450px;">
             </div>
+            <p style="padding-top: 25px; margin-bottom: 40px; font-size: 25px; color: black; font-weight: 500;">Sign Up</p>
+          </div>
+          <div class="col-sm-4" style="margin-bottom: 20px;">
+            <div class="thumbnail">
+              <img class="img-fluid" src="/images/newseller.PNG" alt="New York"  style="height: 450px;">
+            </div>
+            <p style="padding-top: 25px; font-size: 25px; color: black; font-weight: 500;">Set up your store online</p>
+          </div>
+          <div class="col-sm-4">
+            <div class="thumbnail">
+              <img class="img-fluid" src="/images/order.PNG" style="height: 450px; width: 400px;" >
+            </div>
+            <p style="padding-top: 25px; font-size: 25px; color: black; font-weight: 500;">Receive online orders</p>
+          </div>
         </div>
-    </div> -->
+          <div class="row text-center slideanim">
+            <div class="col-sm-4" style="margin-bottom: 20px;" >
+              <div class="thumbnail">
+                <img class="img-fluid" src="/images/placeorder.PNG" style="height: 450px;">
+              </div>
+              <p style="padding-top: 25px; font-size: 25px; color: black; font-weight: 500;">Place orders online</p>
+            </div>
+            <div class="col-sm-4" style="margin-bottom: 20px;">
+              <div class="thumbnail">
+                <img class="img-fluid" src="/images/bill.PNG" alt="New York"  style="height: 450px;">
+              </div>
+              <p style="padding-top: 25px; font-size: 25px; color: black; font-weight: 500;">Generate computerised Bill</p>
+            </div>
 
 
+            <div class="col-sm-4" style="margin-bottom: 20px;">
+                <div class="thumbnail">
+                  <img class="img-fluid" src="/images/maps.PNG" alt="New York"  style="height: 450px;">
+                </div>
+                <p style="padding-top: 25px; font-size: 25px; color: black; font-weight: 500;">Maps for easy navigation</p>
+              </div>
+        </div>
 
+    </div>
+
+
+        <div id="contact" class="container-fluid bg-light">
+            <h2 class="text-center " style="padding-left: 80px;"> Contact us... Feedback</h2>
+              <div class="row">
+                  <div class="col-sm-5">
+                      <p style="font-weight: bold; font-size: 19px">Contact us and we'll get back to you within 24 hours.</p>
+                      <span style="margin-bottom: 5px;"> <i class="material-icons">&#xe55f;</i>NIT Surat, Ichchanath, </span> <div style="padding-left:20px">  Surat-Dumas Road, Keval Chowk,<br> Surat, Gujarat<br> 395007 </div> <br>
+                      <p><i class="material-icons">&#xe0d4;</i> +00 1515151515</p>
+                      <p><i class="material-icons">&#xe0e1;</i> hypertextcoders@svnit.ac.in</p>
+                  </div>
+          
+                  <div class="col-sm-7 slideanim">
+                      <div class="row">
+                          <div class="col-sm-6 form-group">
+                              <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+                          </div>
+                          <div class="col-sm-6 form-group">
+                              <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+                          </div>
+                      </div>
+                          <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+                          <div class="row">
+                              <div class="col-sm-12 form-group">
+                              <button class="btn btn-default pull-right" type="submit">Send</button>
+                          </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+    
+              
+              
+          
+          
+           <div class="row bg-dark d-flex justify-content-center align-items-center" style=" color: white; height: 150px;">
+              <div class="col-xl-4">
+                  <center> <p class="Covid-info" style="margin-bottom: 0;font-weight: 500;"> Covid-Info   </p></center>	
+              </div>
+              <div class="col-xl-4">
+                  <center> <p> © Copyright HC, 2020. All rights reserved </p></center>
+              </div>
+              <div class="col-xl-4">
+                  <center> <p>Developed by : HyperText Coders/SAS </p></center>
+              </div>
+          </div>
+              
 
 
 
@@ -127,6 +251,26 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.15.0/js/mdb.min.js"></script>
+
+
+
+          <script>
+
+
+            $(document).ready(function(){   
+                        $(window).scroll(function() {
+                $(".slideanim").each(function(){
+                var pos = $(this).offset().top;
+                var winTop = $(window).scrollTop();
+                    if (pos < winTop + 600) {
+                    $(this).addClass("slide");
+                    }
+                });
+            });
+            });
+
+
+          </script>
 
 
     </body>
