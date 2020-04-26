@@ -1,103 +1,109 @@
-    * {
-            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif
-        }
-        
-        body {
-            margin: 0px;
-			background-color: #eef0dd;
-        }
-        path {
-            stroke: black;
-            stroke-width: 0.05px;
-            fill: #808080;
-        }
-        .detail {
-            top: 0px;
-            height: 70px;
-        }
-        .center {
-            text-align: center;
-        }
-				
+
+
+body {
+	margin: 0px;
+	background-color: #eef0dd;
+}
+path {
+	stroke: black;
+	stroke-width: 0.05px;
+	fill: #808080;
+}
+.detail {
+	top: 0px;
+	height: 70px;
+}
+.center {
+	text-align: center;
+}
 		
 
-		.hidden{
-			visibility: hidden;
-		}
 
-		svg{
-		
-			margin-bottom:0px;	
-		}
+.hidden{
+	visibility: hidden;
+}
 
-		.state{
-			visibility: hidden;
-			padding-left: 10px;
-		}
+svg{
 
-		.table.table-striped.table-dark td{
-			padding: 7px;
-			border: 2px solid black;
-			text-align: center;
-			font-size: 18px;
-		}
+	margin-bottom:0px;	
+}
 
-		.table thead th{
-			font-size: 21px;
-			border: 2px solid black;
-		}
+.state{
+	visibility: hidden;
+	padding-left: 10px;
+}
 
-		canvas{
-			background-color:#2f3030;
-			color: white;
-			font-size:75px;
-		}
+.table.table-striped.table-dark td{
+	padding: 7px;
+	border: 2px solid black;
+	text-align: center;
+	font-size: 18px;
 
-		
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, "serif"
 
-		.square{
-			margin-right: 10px;
-			margin-top: 10px;
-			height: 70px;
-			
-		}
+}
 
-		.scrollable{
-			overflow-y: scroll;
-			height: 600px;
-			margin: 0px auto;
-		}
-		
-		.navbar.scrolled{
-			background-color: red;
-			transition: background 500ms;
-		}
-		
-		#mainNavbar .nav-link:hover{
-            color: #001ee0;
-        }
-		
-		.navbar .navbar-brand{
-			color: white;
-		}
-		
-		.navbar .nav-link{
-			color: white;
-		}
+.table thead th{
+	font-size: 21px;
+	border: 2px solid black;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, "serif"
+}
 
-		html,
-  body{
-    width:100%;
-    overflow-x:hidden;
-  }
+canvas{
+	background-color:#2f3030;
+	color: white;
+	font-size:75px;
+}
 
 
-  p.Covid-info{
-	font-family: 'Londrina Outline', cursive;
-	font-size: 45px;
-  }
 
-  table.table a{
-	  color: white;
-	  text-decoration: underline;
-  }
+.square{
+	margin-right: 10px;
+	margin-top: 10px;
+	height: 70px;
+	
+}
+
+.scrollable{
+	overflow-y: scroll;
+	height: 600px;
+	margin: 0px auto;
+}
+
+.navbar.scrolled{
+	background-color: red;
+	transition: background 500ms;
+}
+
+#mainNavbar .nav-link:hover{
+	color: #32D328;
+	padding-top: 12px;
+}
+.nav-link{
+	padding-top: 15px;
+	color : white;
+}
+
+.navbar .navbar-brand{
+	color: white;
+	font-size: 25px;
+	padding-top: 12px;
+}
+
+
+html,
+body{
+width:100%;
+overflow-x:hidden;
+}
+
+
+p.Covid-info{
+font-family: 'Londrina Outline', cursive;
+font-size: 45px;
+}
+
+table.table a{
+color: white;
+text-decoration: underline;
+}

@@ -23,7 +23,7 @@
 	margin: 2.5%;
 }
 body{
-	background: #75eb87; 
+	background: #eef0dd; 
 	margin: 0; 
 }
 
@@ -38,16 +38,20 @@ body{
 }
 
 #mainNavbar .nav-link:hover{
-	color: #001ee0;
-}
+            color: #32D328;
+            padding-top: 12px;
+        }
 
-.navbar .navbar-brand{
-	color: white;
-}
+        .navbar .navbar-brand{
+            color: white;
+            font-size: 25px;
+            padding-top: 12px;
+        }
 
-.navbar .nav-link{
-	color: white;
-}
+.nav-link{
+        	padding-top: 15px;
+        	color : white;
+        }
 
 p.Covid-info{
 	font-family: 'Londrina Outline', cursive;
