@@ -32,16 +32,16 @@ Another problem faced by people now is crowding of people in front of grocery st
 ## Code style
   1. Proper folder structure has been maintained
   
-       ![alt text](https://github.com/shankhanil007/hello-world/blob/master/Capture.PNG "Folder Structure")
+       ![](Images/Capture.PNG)
 
   2. Proper indenting and sequential inclusion of files
-      ![alt text](https://github.com/shankhanil007/hello-world/blob/master/Capture2.PNG "File inclusion")
+      ![](Images/Capture2.PNG)
   
   3. Basic HTML5 syntax with bootstrap included
-      ![alt text](https://github.com/shankhanil007/hello-world/blob/master/Capture3.PNG "HTML syntax")
+      ![](Images/Capture3.PNG)
       
    4. Plain JavaScript used
-       ![alt text](https://github.com/shankhanil007/hello-world/blob/master/Capture4.PNG "Javascript code")
+       ![](Images/Capture4.PNG")
    
 
 
