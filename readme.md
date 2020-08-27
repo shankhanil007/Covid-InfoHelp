@@ -1,8 +1,9 @@
-## Covid-info
-Covid-info/help is a website that serves two main purposes. Firstly it's an information site on Covid-19. It displays real time statistics of the world(country-wise) and India(state-wise and district-wise) regarding Covid-19 condition. Users can also get information about Covid-19 testing centers, helpline-nos, NGO's, Hospitals, etc. available in various cities of India. The website also has a unique news feature that renders 10 latest news related to Covid-19 of the place entered by the user. 
-Secondly, through this website small business shops can take their accept orders online. 
+# Covid-Info/Help
 
-This facility serves two purposes :
+Covid-Info/Help is a website that serves two main purposes. Firstly it's an information site on Covid-19. It displays real time statistics of the world(country-wise) and India(state-wise and district-wise) regarding Covid-19 situation. Users can also get information about Covid-19 testing centers, helpline-nos, NGO's, Hospitals, etc. available in various cities of India. The website also has a unique news feature that renders 10 latest news related to Covid-19 of the place entered by the user. A mini Covid-19 risk checker facility is also provided.
+
+
+Secondly, through Covid-help website small business shops can accept orders online. This facility serves two purposes :
    1. Buyers : Since customers are unable to move out of their houses during
          lockdown, they can place an e-order through the website without having to
          visit the store physically.
@@ -17,11 +18,12 @@ Maps feature has been added for easy navigation to shops.
 
 ## Motivation
  The very world we know and love is changing by the second due to the spread of COVID-19. People are stuck in their houses and are badly impacted by this crisis. People are very curious about questions like -
- * How many cases has my City registered
- * What is the totals number of active cases in India or Worldwide
- * What are the latest news regarding Covid-19 of my city
- * Are there any Covid testing labs, hospitals, free food shelters, NGOs, etc. nearby me
+ * How many cases has my City registered?
+ * What is the totals number of active cases in India or Worldwide?
+ * What are the latest news regarding Covid-19 of my city?
+ * Are there any Covid testing labs, hospitals, free food shelters, NGOs, etc. nearby me?
  * Which phone number to dial in case of emergency?
+ 
  All these questions were the basis of our Covid-info project and we tried to create a one-stop solution for all questions.
  
 Another problem faced by people now is crowding of people in front of grocery stores while collecting orders. This leads to total disruption of the concept of social distancing. So our team thought of designing a website where these small grocery stores can take their orders online. People can place online orders from home and come to the shop to directly collect their orders. This will reduce the waiting time in long queues and also enforce social distancing. Therefore we have launched Covid-help website. 
@@ -41,7 +43,6 @@ Another problem faced by people now is crowding of people in front of grocery st
    4. Plain JavaScript used
        ![alt text](https://github.com/shankhanil007/hello-world/blob/master/Capture4.PNG "Javascript code")
    
-## Screenshots
 
 
 
@@ -78,17 +79,16 @@ The following tools were used in building this site
 
 
 ## Features
-* Covid-info
+* **Covid-info website**
   * Recent statistics of Covid-19 confirmed, active, recovered, deaths cases of world(country-wise) and India(state-wise and district-wise) rendered in tabular format.
-  * Graphical Representation of data for better understanding.
+  * Graphical Representation ( line-charts ) of data for better understanding.
   * Choropleth map of world and India for better data visualisation.
   * Accurate and Effective news scrapper that renders 10 latest news of a place.
   * Additional important information like - Covid-19 testing centers, Hospitals, Govt. Helpline nos., Free food services, Shelter homes and much more.
-  * User interactive website. Responsive for desktop and mobile use.
   * Additional risk checker of Covid-19 for users.
  
  
-* Covid-help
+* **Covid-help website**
   * Small shops and businesses can currently take their business online by signing up on our website.
   * Maps feature added for easy location and identification of shops by users.
   * Extremely simple to place orders.
@@ -107,15 +107,11 @@ The following tools were used in building this site
 * Additional features
   * Well sanitized code base and easy to maintain
   * All RESTful routes followed and proper routes maintained.
+  * Responsive website, suitable for desktop and mobile use. 
  
  
 
 
-
-
-
-## Code Example
-Show what the library does as concisely as possible, developers should be able to figure out how your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
 
 
 
@@ -193,35 +189,31 @@ It is very easy to use our project if anyone wants. Just follow the steps :
 ## API Reference
 The following API's were used used to fetch Covid-19 data for our website that renders data in JSON format
   * [https://corona.lmao.ninja/v2/countries](https://corona.lmao.ninja/v2/countries)
-  * [https://api.covid19india.org/state_district_wise.json](https://api.covid19india.org/state_district_wise.json)
-  * [https://api.covid19india.org/data.json](https://api.covid19india.org/data.json)
+  * [https://api.rootnet.in/covid19-in/stats/latest](https://api.rootnet.in/covid19-in/stats/latest)
+  * [https://api.rootnet.in/covid19-in/stats/history](https://api.rootnet.in/covid19-in/stats/history)
   * [https://api.covid19india.org/resources/resources.json](https://api.covid19india.org/resources/resources.json)
   
 The project also uses Maps api of mapmyindia.org to render maps
  * [https://www.mapmyindia.com/api/advanced-maps/doc/interactive-map-api](https://www.mapmyindia.com/api/advanced-maps/doc/interactive-map-api)
 
 
-## Tests
-####Describe and show how to run the tests with code examples.
-
-
-
 
 ## Challenges we ran into
 
-1. **Finding the right APIs :** Our first challenge was to find suitable APIs that would render data for our Covid-info website. It took was quite some time but we managed to find a website that had multiple APIs rendeing Covid-19 related information in JSON format. It was then easier for us to parse the JSON data into javascript object.
+1. **Finding the right APIs :** Our first challenge was to find suitable APIs that would render data for our Covid-info website. It took us some time but we managed to find a website that had multiple APIs rendering Covid-19 related information in JSON format. It was then easier for us to parse the JSON data into javascript object.
 
-2. **Making choropleth maps with SVG and d3.js :** We thought of incorporating choropleth maps in our website for better visualisation of Covid-19 situation. Being new to wev development we had absolutely no idea how to go about it. After going through several articles on *stackoverflow.com* we learnt *d3.js* library could be useful to us. *d3.js* is a javascript library that helps you bring data to life using HTML, SVG, and CSS. But using the library and understanding its usage was very chalenging. Also to render our map we needed *topojson* data of the world. Thanks to this great tutorial on [YouTube](https://www.youtube.com/watch?v=045-bsOsbJc) which made our learning process easier.
+2. **Making choropleth maps with SVG and d3.js :** We thought of incorporating choropleth maps in our website for better visualisation of Covid-19 situation. Being new to web development we had absolutely no idea how to go about it. After going through several articles on *stackoverflow.com* we learnt *d3.js* library could be useful to us. *d3.js* is a javascript library that helps you bring data to life using HTML, SVG, and CSS. But using the library and understanding its usage was very challenging. Also to render our map we needed *topojson* data of the world. Thanks to this great tutorial on [YouTube](https://www.youtube.com/watch?v=045-bsOsbJc) which made our learning process easier.
 
-3. **Web scrapping dynamic data :**  Building of the Covid-19 news scrapper was very challenging for us. We had never done web scrapping before. After going through several tutorials we successfully used *request.js* and *cheerio.js* to scrap data from a website. But our task was to build a news scrapper whose data constanly gets updated with time. After a lot of research we learnt that the previous tools could scrape only static data. We then took help of *puppeteer.js* which is headless chrome browser suitable for scrapping dynamic data.
+3. **Web scrapping dynamic data :**  Building of the Covid-19 news scrapper was a difficult task for us. We had never done web scrapping before. After going through several tutorials we successfully used *request.js* and *cheerio.js* to scrap data from a website. But our task was to build a news scrapper whose data constantly gets updated with time. After a lot of research we learnt that the previous tools could scrape only static data. We then took help of *puppeteer.js* which is headless chrome browser suitable for scrapping dynamic data.
 
 4. **Problem of using Google maps API from India :**  In our online grocery store project, for ease of identification and navigation to shops we wanted to add a maps feature. Our first choice was google maps API. In order to use the API we needed to set-up a payment method with a recurring-transaction allowable credit card. Also for Indian users google does not accept debit cards. Since we could not setup a payment method we had a hard time in finding a suitable free maps API. Thats when we found 
 [mapmyindia APIs](https://www.mapmyindia.com/api/). This API provides accurate mapping functionalities, with some additional features to google maps and has a user friendly documentation.
 
-5. **Interchange of data in MongoDB :**  In our online grocery store project we had a very difficult time in interchanging data in our mongodb database. Our task was to make it easier for shopkeepers to maintain the record of orders under *New Orders*, *Payment Pending* and *Completed* categories. With click the user must be able to transfer the order from *New Orders* to *Payment Pending* category. To overcome this problem we had to redesign the schema of our orders model keeping all the above categories as separate from one another. This helped in proper transfer of data. 
+5. **Interchange of data in MongoDB :**  In our online grocery store project we had a very difficult time in interchanging data in our mongodb database. Our task was to make it easier for shopkeepers to maintain the record of orders under *New Orders*, *Payment Pending* and *Completed* categories. With one click the user must be able to transfer the order from *New Orders* to *Payment Pending* category. To overcome this problem we had to redesign the schema of our orders model keeping all the above categories as separate from one another. This helped in proper transfer of data. 
 
 6. **Using authentication feature :** This was one of the most important features of our grocery project. We had to ensure no two users can have same username, each shop is identified by a unique id, users cannot place online orders without logging in and so on.  For this we used  passport.js library which provides simple, unobtrusive authentication for Node.js. Also its great documentation helped us incorporate it properly in our project.
 
+7. **Non-availability of members at one location :** Due to current Covid-19 crisis our team was working on this project from three different locations. This was quite difficult in many occasions but still we coordinated well with each other. We were constantly in touch with each other over phone and updated the developments of our project on GitHub.
 
 
 
@@ -234,8 +226,6 @@ The project also uses Maps api of mapmyindia.org to render maps
 
 
 
-## How to use?
-####If people like your project they’ll want to learn how they can use it. To do so include step by step guide to use your project.
 
 
 
@@ -256,10 +246,11 @@ If you'd like to contribute, please fork the repository and make changes as you'
 
 
 ## Credits
-####Give proper credits. This could be a link to any repo which inspired you to build this project, any blogposts or links to people who contributed in this project.
+   * Rajat Sharma(3rd year ECE UG at Sardar Vallabhbhai National Institute of Technology, Surat) for acting as our mentor and constantly guiding us throughout the project.
+   * [MapmyIndia Interactive Map JS](https://github.com/MapmyIndia/mapmyindia-interactive-map-js-api) for their detailed GitHub repository on how to use thier features. 
+   * [COVID-19 REST API for India](https://github.com/amodm/api-covid19-in) for providing opensource APIs related to Covid-19 information and helping thousands of developers.
 
 
+#### Developed by : HyperText Coders
 
-## License
-####A short snippet describing the license (MIT, Apache etc)
 
