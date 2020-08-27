@@ -51,7 +51,7 @@ function drawMap(states, data) {
         // .domain([10000, 100000, 500000, 1000000, 5000000, 10000000, 50000000, 100000000, 500000000, 1500000000])
         // .range(["#f7fcfd", "#e0ecf4", "#bfd3e6", "#9ebcda", "#8c96c6", "#8c6bb1", "#88419d", "#810f7c", "#4d004b"]);
 	
-		.domain([1,30, 90, 150, 200, 500, 800, 1000, 2000, 3000,4000, 5000])
+		.domain([1,100, 500, 800, 1500, 2500, 3500, 4500, 6000, 10000,20000, 30000])
 		.range(["#fff5f0", "#fee0d2", "#fcbba1", "#fc9272", "#fb6a4a", "#ef3b2c", "#db181d", "#a50f15","#b82f25","#912c24", "#67000d",'#7d0f0f']);
 
     var features = topojson.feature(states, states.objects.india).features;

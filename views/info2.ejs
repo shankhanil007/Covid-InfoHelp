@@ -157,27 +157,6 @@
 </div>
 
 
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -237,29 +216,6 @@ $(function(){
 
 
 
-// $(function(){
-//     $('#city').on('change', function(){
-//         var val = $(this).val();
-//         var sub = $('#category');
-//         $('option', sub).filter(function(){
-//             if (
-//                  $(this).attr('data-group') === val 
-//               || $(this).attr('data-group') === 'SHOW'
-//             ) {
-//               if ($(this).parent('span').length) {
-//                 $(this).unwrap();
-//               }
-//             } else {
-//               if (!$(this).parent('span').length) {
-//                 $(this).wrap( "<span>" ).parent().hide();
-//               }
-//             }
-//         });
-//     });
-//     $('#city').trigger('change');
-// });
-
-
 
   function display()
   {
@@ -306,59 +262,6 @@ $(function(){
             })
           }
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // function cityList()
-    // {
-        
-    //     var details='<%-JSON.stringify(details)%>';
-
-    //     details = details.replace(/\\n/g, "\\n")  
-    //            .replace(/\\'/g, "\\'")
-    //            .replace(/\\"/g, '\\"')
-    //            .replace(/\\&/g, "\\&")
-    //            .replace(/\\r/g, "\\r")
-    //            .replace(/\\t/g, "\\t")
-    //            .replace(/\\b/g, "\\b")
-    //            .replace(/\\f/g, "\\f");
-    //     // remove non-printable and other non-valid JSON chars
-    //     details = details.replace(/[\u0000-\u0019]+/g,""); 
-
-    //     details  = JSON.parse(details);
-
-    //     var e=document.getElementById("state");
-    //     var value = e.options[e.selectedIndex].value;
-
-    //     var city = document.getElementById("city");
-        
-
-    //         details.resources.forEach(function(info){
-    //             if(info.state == value)
-    //             {
-    //                 var option = document.createElement("option");
-    //                 option.text = option.value = info.city;
-    //                 city.add(option);
-    //             }
-    //         });
-            
-    // }
-
-
-
-
 
  </script>
 
