@@ -41,7 +41,7 @@ Another problem faced by people now is crowding of people in front of grocery st
       ![](Images/Capture3.PNG)
       
    4. Plain JavaScript used
-       ![](Images/Capture4.PNG")
+       ![](Images/Capture4.PNG)
    
 
 
