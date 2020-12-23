@@ -23,7 +23,7 @@ var resources = require("./public/json/resources.json");
 
 mongoose
   .connect(
-    "mongodb+srv://shankhanil007:Rh@974ine@cluster0-azmz3.mongodb.net/test?retryWrites=true&w=majority",
+    "",
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then(() => {
